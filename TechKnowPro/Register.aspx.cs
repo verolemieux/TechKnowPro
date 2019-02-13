@@ -25,11 +25,7 @@ namespace TechKnowPro
 
             if (Page.IsValid)
             {
-                firstName = Request.Form["First Name"];
-                lastName = Request.Form["Last Name"];
-                address = Request.Form["Address"];
-                email = Request.Form["Email"];
-                password = Request.Form["Password"];
+
             }
 
         }
