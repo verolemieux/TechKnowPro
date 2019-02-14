@@ -18,7 +18,7 @@
         }
         
     </style>
-    <--! huhdhdajdhahs-->
+
 </head>
 <body class="text-center">
     <form id="form1" runat="server">
