@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid centered" style="margin: 0 auto; text-align:center">
             <h1 style="margin:5px">FORGOT PASSWORD</h1>
-            <asp:Label ID="lblChangePasswordErr" style="margin:5px" runat="server"></asp:Label>
+            <asp:CustomValidator ID="CustomValidatorMissingFields" runat="server" ErrorMessage="" ForeColor="Red" OnServerValidate="CustomValidatorMissingFields_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             <div class="form-group col-md-4" style="margin:auto; left: 0px; top: 0px;">
                 <div class="col" style="margin:5px">
                     <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
@@ -37,15 +37,17 @@
                  <div class="col" style="margin:5px">
                     <asp:Label ID="lblNewPassword" runat="server" Text="New Password"></asp:Label>
                     <asp:TextBox ID="txtNewPassword" runat="server" class="form-control"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorPassword" runat="server" ErrorMessage="Password must be 6-12 characters in length, and must contain at least 1 uppercase letter and 1 special character!" ValidationExpression="^(?=.*[A-Z])(?=.*[@#$%^&amp;+=]){6,12}" ForeColor="Red" ControlToValidate="txtNewPassword" Display="Dynamic"></asp:RegularExpressionValidator>
                 </div>
                  <div class="col" style="margin:5px">
                     <asp:Label ID="lblConfirmPassword" runat="server" Text="Password Confirmation"></asp:Label>
                     <asp:TextBox ID="txtConfirmPassword" runat="server" class="form-control"></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidatorComparePassword" runat="server" ForeColor="Red" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage="Password confirmation must match password!"></asp:CompareValidator>
                 </div>
                 <div class="col" style="margin:5px">
-                    <asp:Button ID="Button1" class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
+                    <asp:Button ID="btnResetPassword" class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Reset Password" OnClick="btnResetPassword_Click" />
                 </div>
-                <asp:Label ID="lblChangePasswordSuccess" style="margin:5px" runat="server"></asp:Label>
+                <asp:Label ID="lblResetPasswordMessage" style="margin:5px" runat="server" ForeColor="Red"></asp:Label>
             </div>          
         </div>
     </form>

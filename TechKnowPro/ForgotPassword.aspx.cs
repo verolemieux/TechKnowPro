@@ -16,13 +16,13 @@ namespace TechKnowPro
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
-        protected void btnChangePassword_Click(object sender, EventArgs e)
+        protected void btnResetPassword_Click(object sender, EventArgs e)
         {
-            string userName = txtUsername.Text;
-            string postalCode = txtPostalCode.Text;
-            string secretQuestion = DropDownListSecretQuestion.Text;
-            string secretAnswer = txtSecretAnswer.Text;
-            string newPassword = txtNewPassword.Text;
+            string userName = txtUsername.Text.ToLower();
+            string postalCode = txtPostalCode.Text.ToLower();
+            string secretQuestion = DropDownListSecretQuestion.Text.ToLower();
+            string secretAnswer = txtSecretAnswer.Text.ToLower();
+            string newPassword = txtNewPassword.Text.ToLower();
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Databases"));
@@ -35,11 +35,46 @@ namespace TechKnowPro
             {
                 string updateQry = "update [User] set Password='" + newPassword + "' where Username='" + userName + "'";
                 SqlCommand cmd2 = new SqlCommand(updateQry, con);
-                lblChangePasswordSuccess.Text = "Password successfully changed! Click <a href='http://localhost:8080/Login.aspx'>here</a> to login!";
+                lblResetPasswordMessage.Text = "Password successfully changed! Click <a href='http://localhost:8080/Login.aspx'>here</a> to login!";
             }
             else
             {
-                lblChangePasswordErr.Text = "Invalid User Information!";
+                lblResetPasswordMessage.Text = "Information entered is incorrect - please verify!";
+            }
+        }
+
+        protected void CustomValidatorMissingFields_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string message = "";
+            if (string.IsNullOrEmpty(this.txtUsername.Text.Trim()))
+            {
+                message = message + "Username<br>";
+            }
+            if (string.IsNullOrEmpty(this.txtPostalCode.Text.Trim()))
+            {
+                message = message + "Postal Code<br>";
+            }
+            if (string.IsNullOrEmpty(this.DropDownListSecretQuestion.Text.Trim()))
+            {
+                message = message + "Secret Question<br>";
+            }
+            if (string.IsNullOrEmpty(this.txtSecretAnswer.Text.Trim()))
+            {
+                message = message + "Secret Answer<br>";
+            }
+            if (string.IsNullOrEmpty(this.txtNewPassword.Text.Trim()))
+            {
+                message = message + "New Password<br>";
+            }
+            if (string.IsNullOrEmpty(this.txtConfirmPassword.Text.Trim()))
+            {
+                message = message + "Password Confirmation<br>";
+            }
+
+            if (message.Length > 0)
+            {
+                args.IsValid = false;
+                ((CustomValidator)source).ErrorMessage = @"&nbsp;Required fields missing:<br>" + message;
             }
         }
     }
