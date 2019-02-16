@@ -21,7 +21,18 @@ namespace TechKnowPro
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vik\Documents\TechKnowPro\TechKnowPro\App_Data\Database.mdf;Integrated Security=True");
+            /*
+            SqlConnection con = new SqlConnection
+            {
+                ConnectionString = "Data Source=|DataDirectory|\Database.mdf";
+                string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                string path = (System.IO.Path.GetDirectoryName(executable));
+                AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            }
+            */
+
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Databases"));
             con.Open();
             string qry = "select * from [User]" + " where Username='" + userName + "' and Password='" + password + "'";
             SqlCommand cmd = new SqlCommand(qry, con);
