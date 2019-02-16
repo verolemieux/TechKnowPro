@@ -30,6 +30,8 @@ namespace TechKnowPro
 
             if (sdr.Read())
             {
+                Session["UserName"] = userName;
+                Session["Password"] = password;
                 Response.Redirect("~/Home.aspx");
             }
             else

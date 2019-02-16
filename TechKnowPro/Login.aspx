@@ -31,7 +31,7 @@
             </div>
             <asp:Button ID="btnLogin" class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Login" OnClick="btnLogin_Click" />
             <asp:Button ID="btnRegister" class="btn btn-primary" style="margin:5px" runat="server" Text="Register" OnClick="btnRegister_Click" /><br/>
-            <asp:HyperLink ID="linkPassword" runat="server">Forgot your password?</asp:HyperLink>   
+            <asp:HyperLink ID="linkPassword" runat="server" NavigateUrl="~/ForgotPassword.aspx">Forgot your password?</asp:HyperLink>   
         </div>
     </form>
 </body>
