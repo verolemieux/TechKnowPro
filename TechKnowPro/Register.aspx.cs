@@ -12,6 +12,8 @@ namespace TechKnowPro
 {
     public partial class Register : System.Web.UI.Page
     {
+        private User newUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -19,17 +21,15 @@ namespace TechKnowPro
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            var firstName = "";
-            var lastName = "";
-            var address = "";
-            var email = "";
-            var password = "";
-
             if (Page.IsValid)
             {
                 sendRegistrationEmail();
                 lblSuccessfulRegistration.Text = "You have successfully registered! An email was sent to " + txtEmail.Text + " - please verify to confirm.";
             }
+            //if () 
+            //{
+            //    lblSuccessfulRegistration.Text = "Sorry - your email address has already been registered with TechKnowPro!";
+            //}
 
         }
 
@@ -51,6 +51,49 @@ namespace TechKnowPro
             smtp.Send(message);
         }
 
-       
+        protected void CustomValidatorMissingFields_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string message = "";
+            if (string.IsNullOrEmpty(this.txtFirstName.Text.Trim()))
+            {
+                message = message + "First Name<br>";
+                //txtFirstName.BorderColor = System.Drawing.Color.Red;
+            }
+            if (string.IsNullOrEmpty(this.txtLastName.Text.Trim()))
+            {
+                message = message + "Last Name<br>";
+                //txtLastName.BorderColor = System.Drawing.Color.Red;
+            }
+            if (string.IsNullOrEmpty(this.txtAddress.Text.Trim()))
+            {
+                message = message + "Address<br>";
+                //txtAddress.BorderColor = System.Drawing.Color.Red;
+            }
+            if (string.IsNullOrEmpty(this.txtEmail.Text.Trim()))
+            {
+                message = message + "Email<br>";
+                //txtEmail.BorderColor = System.Drawing.Color.Red;
+            }
+            if (string.IsNullOrEmpty(this.txtPassword.Text.Trim()))
+            {
+                message = message + "Password<br>";
+                //txtPassword.BorderColor = System.Drawing.Color.Red;
+            }
+            if (string.IsNullOrEmpty(this.txtConfirmPassword.Text.Trim()))
+            {
+                message = message + "Password Confirmation<br>";
+                //txtConfirmPassword.BorderColor = System.Drawing.Color.Red;
+            }
+            if (cbTerms.Checked == false)
+            {
+                message = message + "Terms of Service Agreement";
+            }
+
+            if (message.Length > 0)
+            {
+                args.IsValid = false;
+                ((CustomValidator)source).ErrorMessage = @"&nbsp;Required fields missing:<br><br>" + message;
+            }
+        }
     }
 }

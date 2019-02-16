@@ -22,13 +22,13 @@ namespace TechKnowPro {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ValidationSummary control.
+        /// CustomValidatorMissingFields control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMissingFields;
         
         /// <summary>
         /// lblFirstName control.
@@ -49,15 +49,6 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
         
         /// <summary>
-        /// valFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valFirstName;
-        
-        /// <summary>
         /// lblLastName control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace TechKnowPro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
-        
-        /// <summary>
-        /// valLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valLastName;
         
         /// <summary>
         /// lblAddress control.
@@ -103,15 +85,6 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// valAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valAddress;
-        
-        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -128,15 +101,6 @@ namespace TechKnowPro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// valEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valEmail;
         
         /// <summary>
         /// regExValEmail control.
@@ -166,15 +130,6 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// valPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPassword;
-        
-        /// <summary>
         /// lblConfirmPassword control.
         /// </summary>
         /// <remarks>
@@ -191,15 +146,6 @@ namespace TechKnowPro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
-        
-        /// <summary>
-        /// valPasswordConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPasswordConfirm;
         
         /// <summary>
         /// valComparePassword control.
