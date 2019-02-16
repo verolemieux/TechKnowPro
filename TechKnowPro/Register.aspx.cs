@@ -39,7 +39,7 @@ namespace TechKnowPro
                 else
                 {
                     sendRegistrationEmail();
-                    //must create user object and push to database
+                    newUser = new User(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtEmail.Text, txtPassword.Text);
                     lblSuccessfulRegistration.Text = "You have successfully registered! An email was sent to " + userName + " - please verify to confirm.";
                 }
             }
