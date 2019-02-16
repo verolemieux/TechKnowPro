@@ -23,14 +23,26 @@ namespace TechKnowPro
         {
             if (Page.IsValid)
             {
-                sendRegistrationEmail();
-                lblSuccessfulRegistration.Text = "You have successfully registered! An email was sent to " + txtEmail.Text + " - please verify to confirm.";
-            }
-            //if () 
-            //{
-            //    lblSuccessfulRegistration.Text = "Sorry - your email address has already been registered with TechKnowPro!";
-            //}
+                string userName = txtEmail.Text;
 
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+                AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Databases"));
+                con.Open();
+                string qry = "select * from [User]" + " where Username='" + userName + "'";
+                SqlCommand cmd = new SqlCommand(qry, con);
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                if (sdr.Read())
+                {
+                    lblSuccessfulRegistration.Text = "An account has already been registered with your email!";
+                }
+                else
+                {
+                    sendRegistrationEmail();
+                    //must create user object and push to database
+                    lblSuccessfulRegistration.Text = "You have successfully registered! An email was sent to " + userName + " - please verify to confirm.";
+                }
+            }
         }
 
         protected void sendRegistrationEmail()
@@ -57,32 +69,26 @@ namespace TechKnowPro
             if (string.IsNullOrEmpty(this.txtFirstName.Text.Trim()))
             {
                 message = message + "First Name<br>";
-                //txtFirstName.BorderColor = System.Drawing.Color.Red;
             }
             if (string.IsNullOrEmpty(this.txtLastName.Text.Trim()))
             {
                 message = message + "Last Name<br>";
-                //txtLastName.BorderColor = System.Drawing.Color.Red;
             }
             if (string.IsNullOrEmpty(this.txtAddress.Text.Trim()))
             {
                 message = message + "Address<br>";
-                //txtAddress.BorderColor = System.Drawing.Color.Red;
             }
             if (string.IsNullOrEmpty(this.txtEmail.Text.Trim()))
             {
                 message = message + "Email<br>";
-                //txtEmail.BorderColor = System.Drawing.Color.Red;
             }
             if (string.IsNullOrEmpty(this.txtPassword.Text.Trim()))
             {
                 message = message + "Password<br>";
-                //txtPassword.BorderColor = System.Drawing.Color.Red;
             }
             if (string.IsNullOrEmpty(this.txtConfirmPassword.Text.Trim()))
             {
                 message = message + "Password Confirmation<br>";
-                //txtConfirmPassword.BorderColor = System.Drawing.Color.Red;
             }
             if (cbTerms.Checked == false)
             {

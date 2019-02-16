@@ -22,6 +22,7 @@ namespace TechKnowPro
             string postalCode = txtPostalCode.Text;
             string secretQuestion = DropDownListSecretQuestion.Text;
             string secretAnswer = txtSecretAnswer.Text;
+            string newPassword = txtNewPassword.Text;
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Databases"));
@@ -32,6 +33,8 @@ namespace TechKnowPro
 
             if (sdr.Read())
             {
+                string updateQry = "update [User] set Password='" + newPassword + "' where Username='" + userName + "'";
+                SqlCommand cmd2 = new SqlCommand(updateQry, con);
                 lblChangePasswordSuccess.Text = "Password successfully changed! Click <a href='http://localhost:8080/Login.aspx'>here</a> to login!";
             }
             else
