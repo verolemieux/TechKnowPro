@@ -14,6 +14,9 @@ namespace TechKnowPro
     {
         private User newUser;
 
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -25,21 +28,25 @@ namespace TechKnowPro
             {
                 string userName = txtEmail.Text;
 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
-                AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Databases"));
                 con.Open();
-                string qry = "select * from [User]" + " where Username='" + userName + "'";
-                SqlCommand cmd = new SqlCommand(qry, con);
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "select * from [User]" + " where Username='" + userName + "'";
+                cmd.ExecuteNonQuery();
                 SqlDataReader sdr = cmd.ExecuteReader();
-
+                
+            
                 if (sdr.Read())
                 {
                     lblSuccessfulRegistration.Text = "An account has already been registered with your email!";
+                    con.Close();
                 }
                 else
                 {
                     sendRegistrationEmail();
+                    con.Close();
                     newUser = new User(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtEmail.Text, txtPassword.Text);
+                    newUser.addUserToDatabase();
                     lblSuccessfulRegistration.Text = "You have successfully registered! An email was sent to " + userName + " - please verify to confirm.";
                 }
             }
