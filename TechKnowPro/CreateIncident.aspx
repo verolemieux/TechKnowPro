@@ -26,11 +26,15 @@
             Incident Report Page</div>
         <table class="auto-style1">
             <tr>
-                <td>Select a customer:</td>
+                <td>Select a customer:<asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Username" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MyConnectionString %>" SelectCommand="SELECT [Username] FROM [User]">
+                    </asp:SqlDataSource>
+                </td>
                 <td>Report Date and Time:</td>
             </tr>
             <tr>
-                <td>Customer ID:</td>
+                <td>Customer ID:<asp:TextBox ID="txtCustId" runat="server"></asp:TextBox>
+                </td>
                 <td>Incident#: </td>
             </tr>
             <tr>
