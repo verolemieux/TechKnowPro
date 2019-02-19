@@ -35,13 +35,13 @@
                     <asp:TextBox ID="txtSecretAnswer" runat="server" class="form-control"></asp:TextBox>
                 </div>
                 <div class="col" style="margin:5px">
-                    <asp:Label ID="lblNewPassword" runat="server" Text="New Password"></asp:Label>
-                    <asp:TextBox ID="txtNewPassword" runat="server" class="form-control"></asp:TextBox>
+                    <asp:Label ID="lblNewPassword" runat="server" Text="New Password" Visible="False"></asp:Label>
+                    <asp:TextBox ID="txtNewPassword" runat="server" class="form-control" Visible="False"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidatorPassword" runat="server" ErrorMessage="Password must be 6-12 characters in length, and must contain at least 1 uppercase letter and 1 special character!" ValidationExpression="^(?=.*[A-Z]+.*)(?=.*[^a-zA-Z0-9]+.*).{6,12}$" ForeColor="Red" ControlToValidate="txtNewPassword" Display="Dynamic"></asp:RegularExpressionValidator>
                 </div>
                  <div class="col" style="margin:5px">
-                    <asp:Label ID="lblConfirmPassword" runat="server" Text="Password Confirmation"></asp:Label>
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" class="form-control"></asp:TextBox>
+                    <asp:Label ID="lblConfirmPassword" runat="server" Text="Password Confirmation" Visible="False"></asp:Label>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" class="form-control" Visible="False"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidatorComparePassword" runat="server" ForeColor="Red" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage="Password confirmation must match password!"></asp:CompareValidator>
                 </div>
                 <div class="col" style="margin:5px">
