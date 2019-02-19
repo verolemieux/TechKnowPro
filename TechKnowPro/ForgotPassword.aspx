@@ -34,7 +34,7 @@
                     <asp:Label ID="lblSecretAnswer" runat="server" Text="Secret Answer"></asp:Label>
                     <asp:TextBox ID="txtSecretAnswer" runat="server" class="form-control"></asp:TextBox>
                 </div>
-                 <div class="col" style="margin:5px">
+                <div class="col" style="margin:5px">
                     <asp:Label ID="lblNewPassword" runat="server" Text="New Password"></asp:Label>
                     <asp:TextBox ID="txtNewPassword" runat="server" class="form-control"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidatorPassword" runat="server" ErrorMessage="Password must be 6-12 characters in length, and must contain at least 1 uppercase letter and 1 special character!" ValidationExpression="^(?=.*[A-Z]+.*)(?=.*[^a-zA-Z0-9]+.*).{6,12}$" ForeColor="Red" ControlToValidate="txtNewPassword" Display="Dynamic"></asp:RegularExpressionValidator>
