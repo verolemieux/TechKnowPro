@@ -84,6 +84,7 @@ namespace TechKnowPro
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
 
+            con.Open();
             SqlCommand cmd2 = con.CreateCommand();
             cmd2.CommandType = System.Data.CommandType.Text;
             cmd2.CommandText = "update [User] set Password='" + newPassword + "' where Username='" + userName + "'";
