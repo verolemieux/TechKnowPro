@@ -79,7 +79,7 @@ namespace TechKnowPro
 
         protected void btnResetPassword_Click(object sender, EventArgs e)
         {
-            string newPassword = txtNewPassword.Text;
+            string newPassword = BCrypt.Net.BCrypt.HashPassword(txtNewPassword.Text);
             string userName = txtUsername.Text;
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");

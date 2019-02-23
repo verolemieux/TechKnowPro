@@ -22,18 +22,15 @@ namespace TechKnowPro
             this.lastName = lastName;
             this.address = address;
             this.email = email;
-            this.password = password;
+            this.password = BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         public void addUserToDatabase()
         {
-            Random random = new Random();
-            string activationCode = random.Next(1001, 9999).ToString();
-                
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "insert into [User](Username,Password,First_Name,Last_Name,Address, Activation_Code) values('" + email + "','" + password + "','" + firstName + "','" + lastName + "','" + address + "','" + activationCode + "')";
+            cmd.CommandText = "insert into [User](Username,Password,First_Name,Last_Name,Address,User_Type) values('" + email + "','" + password + "','" + firstName + "','" + lastName + "','" + address + "','customer')";
             cmd.ExecuteNonQuery();
             con.Close();
         }

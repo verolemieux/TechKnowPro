@@ -4,11 +4,88 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Home</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div id="header" style="margin:20px">
+            <h1 class="font-weight-bold">TechKnowPro - Incident Report Management Software</h1>
+            <asp:Button ID="btnLogout" class="btn btn-outline-primary" runat="server" OnClick="BtnLogout_Click" Text="Logout" />
+            <h2><asp:Label ID="lblWelcome" runat="server" Text="" CssClass="font-weight-normal"></asp:Label></h2>
+        </div>
+
+        <!-- content for admin user -->
+        <div runat="server" visible="false" id="homeAdmin" style="margin:20px">
+            <br />
+            <br />
+            <div class="card" style="width: 35rem;">
+              <div class="card-body">
+                <h5 class="card-title">Getting Started</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="#">Customers</a></h6>
+                <p class="card-text">Go to Customers section to search customer information</p>
+              </div>
+            </div>
+            <br />
+            <br />
+        </div>
+
+        <!-- content for tech user -->
+        <div runat="server" visible="false" id="homeTech" style="margin:20px">
+            <br />
+            <br />
+            <div class="card" style="width: 35rem;">
+              <div class="card-body">
+                <h5 class="card-title">Getting Started</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="#">Incidents</a></h6>
+                <p class="card-text">Go to Incidents section to search and review customer incident reports</p>
+              </div>
+            </div>
+            <br />
+            <br />
+        </div>
+
+        <!-- content for customer user -->
+        <div runat="server" visible="false" id="homeCustomer" style="margin:20px">
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Getting Started</h5>
+                      <h6 class="card-subtitle mb-2 text-muted"><a href="#">Profile</a></h6>
+                        <p class="card-text">Go to Profile section to update your profile and/or customer information</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">What do you think about our service?</h5>
+                      <h6 class="card-subtitle mb-2 text-muted"><a href="#">Survey</a></h6>
+                    <p class="card-text">Submit a survey to provide your feedback for any service we have provided to you recently</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+        </div>            
+
+        <div id="footer" style="margin:20px">
+            <div id="groupMembers" class="card border-primary mb-3" style="width: 25rem">
+                <div class="card-header">GROUP MEMBERS</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">1. Saad Khan</li>
+                    <li class="list-group-item">2. Veronyque Lemieux - 101106553</li>
+                    <li class="list-group-item">3. Ian Miranda</li>
+                    <li class="list-group-item">4. Jeremy Thibeau</li>
+                </ul>
+            </div>
+            <hr />
+            <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>
         </div>
     </form>
 </body>

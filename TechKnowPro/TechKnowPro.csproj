@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -85,6 +88,7 @@
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="LICENSE.txt" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
