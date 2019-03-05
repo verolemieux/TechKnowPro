@@ -13,17 +13,23 @@ namespace TechKnowPro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+            if(Session["UserType"] == null || Session["UserType"].ToString() != "tech")
+            {
+                Session["ErrorMessage"] = "You do not have permission to access this page.";
+                if(Session["UserName"] == null) Response.Redirect("Login.aspx");
+                Response.Redirect("Home.aspx");
+            }
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "select [First_Name] from [User]" + " where Username='DropDownList1.SelectedValue'";
-            txtCustId.Text = Convert.ToString(cmd.ExecuteNonQuery());*/
-            txtCustId.Text = "Hello";
+            cmd.CommandText = "select Incident_Num from Incidents";
+            cmd.ExecuteNonQuery();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            //retrieves the highest incident number and increments by 1 for the next number
+            while (sdr.Read())
+                lblIncidentNum.Text = (1+Convert.ToInt32(sdr["Incident_Num"])).ToString();
+            lblDate.Text = DateTime.Now.ToString();
         }
 
         protected void DropDownList1_SelectedIndexChanged1(object sender, EventArgs e)
