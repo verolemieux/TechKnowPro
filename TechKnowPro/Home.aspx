@@ -54,7 +54,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Getting Started</h5>
-                      <h6 class="card-subtitle mb-2 text-muted"><a href="#">Profile</a></h6>
+                      <h6 class="card-subtitle mb-2 text-muted"><a runat="server" href="Profile.aspx">Profile</a></h6>
                         <p class="card-text">Go to Profile section to update your profile and/or customer information</p>
                   </div>
                 </div>
