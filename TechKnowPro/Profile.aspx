@@ -37,7 +37,7 @@
                 <tr>
                     <td>Profile Name:</td>
                     <td>
-                        <asp:TextBox ID="txtProfile" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtProfileName" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
