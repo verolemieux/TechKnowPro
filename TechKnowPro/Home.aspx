@@ -45,7 +45,7 @@
             <br />
         </div>
 
-        <!-- content for customer user -->
+        <!-- content for VERIFIED customer user -->
         <div runat="server" visible="false" id="homeCustomer" style="margin:20px">
             <br />
             <br />
@@ -65,6 +65,26 @@
                     <h5 class="card-title">What do you think about our service?</h5>
                       <h6 class="card-subtitle mb-2 text-muted"><a href="#">Survey</a></h6>
                     <p class="card-text">Submit a survey to provide your feedback for any service we have provided to you recently</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+        </div>    
+        
+        <!-- content for UNVERIFIED customer user -->
+        <div runat="server" visible="false" id="homeCustomerUnverified" style="margin:20px">
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Verify your Email</h5>
+                        <p class="card-text">Please verify your email address by clicking the link in the email that was sent during registration. Haven't received an email? Click the button below.</p>
+                        <asp:Button ID="btnResendEmail" runat="server" Text="Resend Verification Email" OnClick="btnResendEmail_Click" />
                   </div>
                 </div>
               </div>
