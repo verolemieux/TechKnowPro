@@ -49,6 +49,15 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
+        /// custValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custValidator;
+        
+        /// <summary>
         /// lblDate control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,22 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        
+        /// <summary>
+        /// descReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator descReq;
         
         /// <summary>
         /// RadioButtonList1 control.

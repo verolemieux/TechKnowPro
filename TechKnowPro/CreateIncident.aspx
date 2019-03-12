@@ -46,9 +46,13 @@
 
             <tr>
 
-                <td>Select a customer:<asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Names" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1"></asp:DropDownList>
+                <td>Select a customer:<asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Names" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1">
+                    <asp:ListItem Selected="True" Value="nullOption">Select</asp:ListItem>
+                    </asp:DropDownList>
 
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username], CONCAT(Last_Name, ', ', First_Name) as Names FROM [User]"></asp:SqlDataSource>
+
+                    <asp:CustomValidator ID="custValidator" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Select an option." OnServerValidate="custValidator_ServerValidate"></asp:CustomValidator>
 
                 </td>
 
@@ -93,8 +97,15 @@
 
         </table>
 
-        <asp:TextBox ID="TextBox1" runat="server" Height="149px" MaxLength="300" TextMode="MultiLine" Width="1022px"></asp:TextBox>
+        <asp:TextBox ID="txtDescription" runat="server" Height="149px" MaxLength="300" TextMode="MultiLine" Width="1022px"></asp:TextBox>
         <table class="auto-style1">
+            <tr>
+                <td>
+
+                    <asp:RequiredFieldValidator ID="descReq" runat="server" ControlToValidate="txtDescription" ErrorMessage="Description required."></asp:RequiredFieldValidator>
+
+                </td>
+            </tr>
             <tr>
                 <td class="auto-style2">Method of Contact:</td>
                 <td class="auto-style3">
@@ -106,7 +117,7 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
     </form>
 </body>
 </html>

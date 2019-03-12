@@ -92,6 +92,7 @@
     <Content Include="LICENSE.txt" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="ViewIncident.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +117,7 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Incident.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +134,13 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="ViewIncident.aspx.cs">
+      <DependentUpon>ViewIncident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewIncident.aspx.designer.cs">
+      <DependentUpon>ViewIncident.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\.DS_Store" />

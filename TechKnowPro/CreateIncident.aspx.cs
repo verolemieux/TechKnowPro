@@ -13,12 +13,15 @@ namespace TechKnowPro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
             if(Session["UserType"] == null || Session["UserType"].ToString() != "tech")
             {
                 Session["ErrorMessage"] = "You do not have permission to access this page.";
                 if(Session["UserName"] == null) Response.Redirect("Login.aspx");
                 Response.Redirect("Home.aspx");
             }
+            lblIncidentNum.Text = "1";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();
@@ -30,6 +33,7 @@ namespace TechKnowPro
             while (sdr.Read())
                 lblIncidentNum.Text = (1+Convert.ToInt32(sdr["Incident_Num"])).ToString();
             lblDate.Text = DateTime.Now.ToString();
+            con.Close();
         }
 
         protected void DropDownList1_SelectedIndexChanged1(object sender, EventArgs e)
@@ -43,6 +47,21 @@ namespace TechKnowPro
             SqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
                 txtCustId.Text = sdr["Username"].ToString();
+
+        }
+
+        protected void custValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(DropDownList1.SelectedValue == "nullOption")
+            {
+                custValidator.Text = "Select a User.";
+            }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Incident newIncident = new Incident(txtCustId.Text, lblDate.Text, Convert.ToInt32(DropDownList2.SelectedValue), txtDescription.Text, Convert.ToInt32(RadioButtonList1.SelectedValue));
+            newIncident.addIncidenttoDatabase();
         }
     }
 }
