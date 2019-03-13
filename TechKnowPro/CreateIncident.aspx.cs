@@ -14,7 +14,23 @@ namespace TechKnowPro
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-
+            lblSuccess.Text = "";
+            if(Session["CreateIncidentSuccess"] != null)
+                {
+                    if (Session["CreateIncidentSuccess"].ToString() == "True")
+                    {
+                        lblSuccess.Text = "Incident added.";
+                    }
+                    else
+                    {
+                        lblSuccess.Text = "";
+                    }
+                }  
+            if(IsPostBack)
+            {
+                Session["CreateIncidentSuccess"] = "False";
+                lblSuccess.Text = "";
+            }
             if(Session["UserType"] == null || Session["UserType"].ToString() != "tech")
             {
                 Session["ErrorMessage"] = "You do not have permission to access this page.";
@@ -58,11 +74,21 @@ namespace TechKnowPro
             {
                 custValidator.Text = "Select a User.";
             }
+            if(txtDescription.Text == null)
+            {
+                txtDescription.Text = "Description required.";
+            }
+            else
+            {
+                txtDescription.Text = "Successful.";
+            }
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            Session["CreateIncidentSuccess"] = "True";
             Incident newIncident = new Incident(Convert.ToInt32(lblIncidentNum.Text), txtCustId.Text, lblDate.Text, Convert.ToInt32(DropDownList2.SelectedValue), txtDescription.Text, Convert.ToInt32(RadioButtonList1.SelectedValue));
             newIncident.addIncidenttoDatabase();
+            Response.Redirect("CreateIncident.aspx");
         }
 
         protected void FormView1_DataBound(object sender, EventArgs e)
