@@ -62,21 +62,25 @@ namespace TechKnowPro
 
         protected void custValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if(Session["Success"] == "true")
+            if(Session["Success"].ToString() == "true")
             {
                 Session["Success"] = "false";
             }
-            if(DropDownList1.SelectedValue == "nullOption")
-            {
-                custValidator.Text = "Select a User.";
-            }
+
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Incident newIncident = new Incident(Convert.ToInt32(lblIncidentNum.Text), txtCustId.Text, lblDate.Text, Convert.ToInt32(DropDownList2.SelectedValue), txtDescription.Text, Convert.ToInt32(RadioButtonList1.SelectedValue));
-            newIncident.addIncidenttoDatabase();
-            Session["Success"] = "true";
-            Response.Redirect("CreateIncident.aspx");
+            if (txtCustId.Text != null)
+            {
+                Incident newIncident = new Incident(Convert.ToInt32(lblIncidentNum.Text), txtCustId.Text, lblDate.Text, DropDownList2.SelectedValue.ToString(), txtDescription.Text, RadioButtonList1.SelectedValue.ToString());
+                newIncident.addIncidenttoDatabase();
+                Session["Success"] = "true";
+                Response.Redirect("CreateIncident.aspx");
+            }
+            else
+            {
+
+            }
         }
 
         protected void FormView1_DataBound(object sender, EventArgs e)

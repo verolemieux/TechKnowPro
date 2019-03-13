@@ -10,14 +10,14 @@ namespace TechKnowPro
     {
         private string username { get; set; }
         private string date { get; set; }
-        private int status { get; set; }
+        private string status { get; set; }
         private string description { get; set; }
-        private int contact { get; set; }
+        private string contact { get; set; }
         private int incidentNum { get; set; }
 
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
 
-        public Incident(int num, string u, string d, int s, string desc, int c)
+        public Incident(int num, string u, string d, string s, string desc, string c)
         {
             username = u;
             date = d;

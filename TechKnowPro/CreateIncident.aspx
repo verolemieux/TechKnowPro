@@ -63,9 +63,9 @@
                     <asp:ListItem Selected = "True" Text = "" Value = ""></asp:ListItem>
                     </asp:DropDownList>
 
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username], CONCAT(Last_Name, ', ', First_Name) as Names FROM [User]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username], CONCAT(Last_Name, ', ', First_Name) as Names FROM [User] where NOT Username='admin@isp.net' AND NOT Username = 'tech@isp.net'"></asp:SqlDataSource>
 
-                    <asp:CustomValidator ID="custValidator" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Select an option." OnServerValidate="custValidator_ServerValidate"></asp:CustomValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Please select a customer."></asp:RequiredFieldValidator>
 
                 </td>
 
@@ -120,9 +120,9 @@
 
                 <td>Status: 
                     <asp:DropDownList ID="DropDownList2" runat="server">
-                        <asp:ListItem Selected="True" Value="1">NEW</asp:ListItem>
-                        <asp:ListItem Value="2">IN PROGRESS</asp:ListItem>
-                        <asp:ListItem Value="3">CLOSED</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="New">NEW</asp:ListItem>
+                        <asp:ListItem Value="In Progress">IN PROGRESS</asp:ListItem>
+                        <asp:ListItem Value="Closed">CLOSED</asp:ListItem>
                     </asp:DropDownList>
                 </td>
 
@@ -158,9 +158,9 @@
                 <td class="auto-style2">Method of Contact:</td>
                 <td class="auto-style3">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="1">Email</asp:ListItem>
-                        <asp:ListItem Value="2">Phone</asp:ListItem>
-                        <asp:ListItem Value="3">In Person</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="Email">Email</asp:ListItem>
+                        <asp:ListItem Value="Phone">Phone</asp:ListItem>
+                        <asp:ListItem Value="In Person">In Person</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
