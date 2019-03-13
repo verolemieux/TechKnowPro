@@ -132,8 +132,6 @@
 
                     <asp:RequiredFieldValidator ID="descReq" runat="server" ControlToValidate="txtDescription" ErrorMessage="Description required."></asp:RequiredFieldValidator>
 
-                    <p><asp:Label ID="lblSuccess" runat="server"></asp:Label></p>
-
                 </td>
             </tr>
             <tr>
@@ -147,7 +145,7 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"/>
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
     </form>
 </body>
 </html>

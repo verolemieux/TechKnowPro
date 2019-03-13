@@ -35,23 +35,77 @@
         </table>
         <p>
             Incident List</p>
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="Incident_Num" DataSourceID="SqlDataSource2">
+            <EditItemTemplate>
+                Incident_Num:
+                <asp:Label ID="Incident_NumLabel1" runat="server" Text='<%# Eval("Incident_Num") %>' />
+                <br />
+                Date_Time:
+                <asp:TextBox ID="Date_TimeTextBox" runat="server" Text='<%# Bind("Date_Time") %>' />
+                <br />
+                Status:
+                <asp:TextBox ID="StatusTextBox" runat="server" Text='<%# Bind("Status") %>' />
+                <br />
+                Contact_Method:
+                <asp:TextBox ID="Contact_MethodTextBox" runat="server" Text='<%# Bind("Contact_Method") %>' />
+                <br />
+                Username:
+                <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
+                <br />
+                Description:
+                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
+                <br />
+                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </EditItemTemplate>
+            <InsertItemTemplate>
+                Incident_Num:
+                <asp:TextBox ID="Incident_NumTextBox" runat="server" Text='<%# Bind("Incident_Num") %>' />
+                <br />
+                Date_Time:
+                <asp:TextBox ID="Date_TimeTextBox" runat="server" Text='<%# Bind("Date_Time") %>' />
+                <br />
+                Status:
+                <asp:TextBox ID="StatusTextBox" runat="server" Text='<%# Bind("Status") %>' />
+                <br />
+                Contact_Method:
+                <asp:TextBox ID="Contact_MethodTextBox" runat="server" Text='<%# Bind("Contact_Method") %>' />
+                <br />
+                Username:
+                <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
+                <br />
+                Description:
+                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
+                <br />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </InsertItemTemplate>
+            <ItemTemplate>
+                Incident_Num:
+                <asp:Label ID="Incident_NumLabel" runat="server" Text='<%# Eval("Incident_Num") %>' />
+                <br />
+                Date_Time:
+                <asp:Label ID="Date_TimeLabel" runat="server" Text='<%# Bind("Date_Time") %>' />
+                <br />
+                Status:
+                <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>' />
+                <br />
+                Contact_Method:
+                <asp:Label ID="Contact_MethodLabel" runat="server" Text='<%# Bind("Contact_Method") %>' />
+                <br />
+                Username:
+                <asp:Label ID="UsernameLabel" runat="server" Text='<%# Bind("Username") %>' />
+                <br />
+                Description:
+                <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Bind("Description") %>' />
+                <br />
+            </ItemTemplate>
+        </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Incidents] WHERE ([Username] = @Username)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="Username" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Panel ID="Panel1" runat="server">
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource2" AutoGenerateColumns="False" DataKeyNames="Incident_Num">
-                <Columns>
-                    <asp:BoundField DataField="Incident_Num" HeaderText="Incident_Num" ReadOnly="True" SortExpression="Incident_Num" />
-                    <asp:BoundField DataField="Date_Time" HeaderText="Date_Time" SortExpression="Date_Time" />
-                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-                    <asp:BoundField DataField="Contact_Method" HeaderText="Contact_Method" SortExpression="Contact_Method" />
-                    <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-                </Columns>
-            </asp:GridView>
-        </asp:Panel>
     </form>
 </body>
 </html>
