@@ -13,13 +13,13 @@ namespace TechKnowPro
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (Session["UserType"] == null || Session["UserType"].ToString() != "customer")
+            if (Session["User Type"] == null || Session["User Type"].ToString() != "customer")
             {
                 Session["ErrorMessage"] = "You do not have permission to access this page.";
                 if (Session["UserName"] == null) Response.Redirect("Login.aspx");
                 Response.Redirect("Home.aspx");
             }
-
+            
             
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
@@ -31,13 +31,6 @@ namespace TechKnowPro
 
             if (sdr.Read())
             {
-                // doesn't exist in the table
-                // txtProfileName.Text = sdr["Profile_Name"].ToString();
-
-                // show password in astericks
-                // txtPassword.Text = sdr["Password"].ToString();
-                
-
                 txtUsername.Text = sdr["Username"].ToString();
                 txtFirstName.Text = sdr["First_Name"].ToString();
                 txtLastName.Text = sdr["Last_Name"].ToString();
@@ -45,6 +38,11 @@ namespace TechKnowPro
                 txtEmail.Text = sdr["Username"].ToString();
             }
             
+        }
+
+        protected void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

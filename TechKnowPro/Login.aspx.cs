@@ -65,7 +65,7 @@ namespace TechKnowPro
                                 {
                                     SqlCommand cmd2 = con.CreateCommand();
                                     cmd2.CommandType = System.Data.CommandType.Text;
-                                    cmd2.CommandText = "update [User] set Verified = 'yes' where Username='" + userName + "'";
+                                    cmd2.CommandText = "update [User] set Verified = 'yes' where Username='" + username + "'";
                                     cmd2.ExecuteNonQuery();
                                     verified = "yes";
                                 }
