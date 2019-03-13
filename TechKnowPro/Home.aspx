@@ -102,7 +102,7 @@
                     <li class="list-group-item">1. Saad Khan</li>
                     <li class="list-group-item">2. Veronyque Lemieux - 101106553</li>
                     <li class="list-group-item">3. Ian Miranda</li>
-                    <li class="list-group-item">4. Jeremy Thibeau</li>
+                    <li class="list-group-item">4. Jeremy Thibeau - 101157911</li>
                 </ul>
             </div>
             <hr />

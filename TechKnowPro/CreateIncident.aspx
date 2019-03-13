@@ -59,8 +59,8 @@
 
             <tr>
 
-                <td>Select a customer:<asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Names" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1">
-                    <asp:ListItem Selected="True" Value="nullOption">Select</asp:ListItem>
+                <td>Select a customer:<asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Names" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1" AppendDataBoundItems = "true">
+                    <asp:ListItem Selected = "True" Text = "" Value = ""></asp:ListItem>
                     </asp:DropDownList>
 
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username], CONCAT(Last_Name, ', ', First_Name) as Names FROM [User]"></asp:SqlDataSource>

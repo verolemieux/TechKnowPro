@@ -82,7 +82,7 @@ namespace TechKnowPro
         protected void FormView1_DataBound(object sender, EventArgs e)
         {
             FormView FormView1 = sender as FormView;
-            txtCustId.Text = FormView1.SelectedValue.ToString();
+            if(FormView1.SelectedValue != null) txtCustId.Text = FormView1.SelectedValue.ToString();
             FormView1.Visible = false;
         }
 
