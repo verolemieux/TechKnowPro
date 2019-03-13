@@ -16,7 +16,20 @@
         .auto-style3 {
             height: 32px;
         }
+        .auto-style4 {
+            width: 919px;
+        }
+        .auto-style5 {
+            width: 902px;
+        }
+        .auto-style6 {
+            width: 153px;
+        }
+        .auto-style7 {
+            margin-left: 292;
+        }
     </style>
+     <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server" >
@@ -24,11 +37,11 @@
 
             <tr>
 
-                <td>TechKnow Pro Incident Management Software</td>
+                <td class="auto-style4"><h1 class="font-weight-bold">TechKnow Pro Incident Management Software</h1></td>
 
                 <td>
 
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" />
+                    <asp:Button ID="btnLogout" class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Logout" OnClick="btnLogout_Click" CausesValidation="False" />
 
                 </td>
 
@@ -135,6 +148,13 @@
                 </td>
             </tr>
             <tr>
+                <td>
+
+                    <asp:Label ID="lblSuccess" runat="server" Text="Incident created."></asp:Label>
+
+                </td>
+            </tr>
+            <tr>
                 <td class="auto-style2">Method of Contact:</td>
                 <td class="auto-style3">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
@@ -144,8 +164,20 @@
                     </asp:RadioButtonList>
                 </td>
             </tr>
+            </table>
+        <table>
+            <tr>
+                <td class="auto-style6">
+                    <asp:Button ID="btnSubmit" class="btn btn-primary" style="margin:5px" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                </td>
+                <td class="auto-style5">
+                    
+                    <asp:Button ID="btnHome" class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Home" CssClass="auto-style7" CausesValidation="False" OnClick="btnHome_Click" />
+
+                </td>
+            </tr>
         </table>
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+        
     </form>
 </body>
 </html>

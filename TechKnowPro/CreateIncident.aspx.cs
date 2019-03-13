@@ -36,6 +36,15 @@ namespace TechKnowPro
                 lblIncidentNum.Text = (1+Convert.ToInt32(sdr["Incident_Num"])).ToString();
             lblDate.Text = DateTime.Now.ToString();
             con.Close();
+            if(Session["Success"] == null)
+            {
+                lblSuccess.Visible = false;
+            }
+            else
+            {
+                lblSuccess.Visible = true;
+                Session["Success"] = null;
+            }
         }
 
         protected void DropDownList1_SelectedIndexChanged1(object sender, EventArgs e)
@@ -49,11 +58,14 @@ namespace TechKnowPro
             SqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
                 txtCustId.Text = sdr["Username"].ToString();
-
         }
 
         protected void custValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
+            if(Session["Success"] == "true")
+            {
+                Session["Success"] = "false";
+            }
             if(DropDownList1.SelectedValue == "nullOption")
             {
                 custValidator.Text = "Select a User.";
@@ -63,6 +75,8 @@ namespace TechKnowPro
         {
             Incident newIncident = new Incident(Convert.ToInt32(lblIncidentNum.Text), txtCustId.Text, lblDate.Text, Convert.ToInt32(DropDownList2.SelectedValue), txtDescription.Text, Convert.ToInt32(RadioButtonList1.SelectedValue));
             newIncident.addIncidenttoDatabase();
+            Session["Success"] = "true";
+            Response.Redirect("CreateIncident.aspx");
         }
 
         protected void FormView1_DataBound(object sender, EventArgs e)
@@ -70,6 +84,18 @@ namespace TechKnowPro
             FormView FormView1 = sender as FormView;
             txtCustId.Text = FormView1.SelectedValue.ToString();
             FormView1.Visible = false;
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Session["Success"] = "false";
+            Response.Redirect("Home.aspx");
         }
     }
 }

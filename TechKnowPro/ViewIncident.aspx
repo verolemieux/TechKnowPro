@@ -34,6 +34,11 @@
             </tr>
         </table>
         <p>
+
+            <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Username" DataValueField="Username"></asp:ListBox>
+
+        </p>
+        <p>
             Incident List</p>
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="Incident_Num" DataSourceID="SqlDataSource2">
             <EditItemTemplate>
