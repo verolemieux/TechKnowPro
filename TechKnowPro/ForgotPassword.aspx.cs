@@ -18,24 +18,16 @@ namespace TechKnowPro
 
         protected void CustomValidatorMissingFields_ServerValidate(object source, ServerValidateEventArgs args)
         {
+            // custom validator that checks if every textbox has been filled
             string message = "";
             if (string.IsNullOrEmpty(this.txtUsername.Text.Trim()))
-            {
                 message = message + "Username<br>";
-            }
             if (string.IsNullOrEmpty(this.txtPostalCode.Text.Trim()))
-            {
                 message = message + "Postal Code<br>";
-            }
             if (string.IsNullOrEmpty(this.DropDownListSecretQuestion.Text.Trim()))
-            {
                 message = message + "Secret Question<br>";
-            }
             if (string.IsNullOrEmpty(this.txtSecretAnswer.Text.Trim()))
-            {
                 message = message + "Secret Answer<br>";
-            }
-
             if (message.Length > 0)
             {
                 args.IsValid = false;
@@ -45,13 +37,11 @@ namespace TechKnowPro
 
         protected void btnVerifyInformation_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
-
             string userName = txtUsername.Text.ToLower();
             string postalCode = txtPostalCode.Text;
             string secretQuestion = DropDownListSecretQuestion.SelectedItem.Text;
             string secretAnswer = txtSecretAnswer.Text.ToLower();
-
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
@@ -61,29 +51,27 @@ namespace TechKnowPro
 
             if (sdr.Read())
             {
+                // if the postal code and security question/answer match the user's previous entries
                 lblNewPassword.Visible = true;
                 txtNewPassword.Visible = true;
-
                 lblConfirmPassword.Visible = true;
                 txtConfirmPassword.Visible = true;
-               
                 btnResetPassword.Visible = true;
             }
             else
             {
+                // if the user input doesn't match previous entries
                 lblResetPasswordMessage.Text = "Information entered is incorrect - please verify!";
             }
-
             con.Close();
         }
 
         protected void btnResetPassword_Click(object sender, EventArgs e)
         {
+            // update password on database
             string newPassword = BCrypt.Net.BCrypt.HashPassword(txtNewPassword.Text);
             string userName = txtUsername.Text;
-
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
-
             con.Open();
             SqlCommand cmd2 = con.CreateCommand();
             cmd2.CommandType = System.Data.CommandType.Text;
