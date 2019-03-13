@@ -31,7 +31,7 @@ namespace TechKnowPro
                 Session["CreateIncidentSuccess"] = "False";
                 lblSuccess.Text = "";
             }
-            if(Session["UserType"] == null || Session["UserType"].ToString() != "tech")
+            if(Session["User Type"] == null || Session["User Type"].ToString() != "tech")
             {
                 Session["ErrorMessage"] = "You do not have permission to access this page.";
                 if(Session["UserName"] == null) Response.Redirect("Login.aspx");
