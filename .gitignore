@@ -263,3 +263,5 @@ __pycache__/
 *.config
 TechKnowPro/App_Data/Database_log.ldf
 TechKnowPro/App_Data/Database.mdf
+TechKnowPro/App_Data/Database.mdf
+TechKnowPro/App_Data/Database_log.ldf
