@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
         <table class="auto-style1">
 
             <tr>
@@ -63,7 +63,7 @@
 
             <tr>
 
-                <td>Customer ID:<asp:TextBox ID="txtCustId" runat="server"></asp:TextBox>
+                <td>Customer ID:<asp:TextBox ID="txtCustId" runat="server" Enabled="False"></asp:TextBox>
 
                 </td>
 
@@ -75,7 +75,35 @@
 
             <tr>
 
-                <td>&nbsp;</td>
+                <td>
+                    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" OnDataBound="FormView1_DataBound">
+                        <EditItemTemplate>
+                            Username:
+                            <asp:Label ID="UsernameLabel1" runat="server" Text='<%# Eval("Username") %>' />
+                            <br />
+                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            Username:
+                            <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
+                            <br />
+                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            Username:
+                            <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' />
+                            <br />
+
+                        </ItemTemplate>
+                    </asp:FormView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username] FROM [User] WHERE ([Username] = @Username)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" Name="Username" PropertyName="SelectedValue" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </td>
 
                 <td>Status: 
                     <asp:DropDownList ID="DropDownList2" runat="server">

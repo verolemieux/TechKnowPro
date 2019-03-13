@@ -17,13 +17,14 @@ namespace TechKnowPro
 
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
 
-        public Incident(string u, string d, int s, string desc, int c)
+        public Incident(int num, string u, string d, int s, string desc, int c)
         {
             username = u;
             date = d;
             status = s;
             description = desc;
             contact = c;
+            incidentNum = num;
         }
         public void addIncidenttoDatabase()
         {
