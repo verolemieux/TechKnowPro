@@ -14,16 +14,16 @@ namespace TechKnowPro
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
-            if (Session["UserType"] == null)
+            if (Session["User Type"] == null)
             {
                 Session.Add("ErrorMessage", "You must successfully login before accessing the page!");
                 Response.Redirect("~/Login.aspx");
             }
             else
             {
-                if (Session["UserType"].ToString() == "admin") homeAdmin.Visible = true;
-                else if (Session["UserType"].ToString() == "tech") homeTech.Visible = true;
-                else if (Session["UserType"].ToString() == "customer") homeCustomer.Visible = true;
+                if (Session["User Type"].ToString() == "admin") homeAdmin.Visible = true;
+                else if (Session["User Type"].ToString() == "tech") homeTech.Visible = true;
+                else if (Session["User Type"].ToString() == "customer") homeCustomer.Visible = true;
 
                 lblWelcome.Text = "Welcome to the Tech Know Pro Support Portal, " + Session["FirstName"] + "!";
             }
