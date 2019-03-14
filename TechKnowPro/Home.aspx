@@ -22,7 +22,7 @@
             <div class="card" style="width: 35rem;">
               <div class="card-body">
                 <h5 class="card-title">Getting Started</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><a href="#">Customers</a></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="Customers.aspx">Customers</a></h6>
                 <p class="card-text">Go to Customers section to search customer information</p>
               </div>
             </div>
@@ -38,7 +38,9 @@
               <div class="card-body">
                 <h5 class="card-title">Getting Started</h5>
                 <h6 class="card-subtitle mb-2 text-muted"><a href="CreateIncident.aspx">Incidents</a></h6>
-                <p class="card-text">Go to Incidents section to search and review customer incident reports</p>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="ViewIncident.aspx">View Incidents</a></h6>
+                  <h6 class="card-subtitle mb-2 text-muted"><a href="Customers.aspx">Customers</a></h6>
+                  <p class="card-text">Go to Incidents section to search and review customer incident reports</p>
               </div>
             </div>
             <br />
@@ -101,7 +103,7 @@
                     <li class="list-group-item">1. Saad Khan</li>
                     <li class="list-group-item">2. Veronyque Lemieux - 101106553</li>
                     <li class="list-group-item">3. Ian Miranda</li>
-                    <li class="list-group-item">4. Jeremy Thibeau</li>
+                    <li class="list-group-item">4. Jeremy Thibeau - 101157911</li>
                 </ul>
             </div>
             <hr />
