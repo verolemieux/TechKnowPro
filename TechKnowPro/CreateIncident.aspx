@@ -177,7 +177,8 @@
                 </td>
             </tr>
         </table>
-        
+         <hr />
+            <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>
     </form>
 </body>
 </html>

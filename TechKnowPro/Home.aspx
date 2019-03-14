@@ -22,7 +22,7 @@
             <div class="card" style="width: 35rem;">
               <div class="card-body">
                 <h5 class="card-title">Getting Started</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><a href="#">Customers</a></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="Customers.aspx">Customers</a></h6>
                 <p class="card-text">Go to Customers section to search customer information</p>
               </div>
             </div>
@@ -39,6 +39,7 @@
                 <h5 class="card-title">Getting Started</h5>
                 <h6 class="card-subtitle mb-2 text-muted"><a href="CreateIncident.aspx">Incidents</a></h6>
                 <h6 class="card-subtitle mb-2 text-muted"><a href="ViewIncident.aspx">View Incidents</a></h6>
+                  <h6 class="card-subtitle mb-2 text-muted"><a href="Customers.aspx">Customers</a></h6>
                   <p class="card-text">Go to Incidents section to search and review customer incident reports</p>
               </div>
             </div>

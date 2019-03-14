@@ -37,7 +37,7 @@
                 <td>Select a customer:</td>
                 <td>
                     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Username" DataValueField="Username" AppendDataBoundItems = "true">
-                    <asp:ListItem Selected = "True" Text = "" Value = ""></asp:ListItem>
+                    
                     </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select a user." ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [User] WHERE NOT Username='admin@isp.net' AND NOT Username = 'tech@isp.net'">
@@ -106,6 +106,8 @@
         <br />
         <br />
         <asp:Button ID="btnHome" class="btn btn-outline-primary" runat="server" Text="Home" CausesValidation="False" OnClick="btnHome_Click" />
+     <hr />
+            <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>
     </form>
 </body>
 </html>

@@ -82,6 +82,7 @@
     <Content Include="css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="Customers.aspx" />
     <Content Include="Database.mdf" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Home.aspx" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="CreateIncident.aspx.designer.cs">
       <DependentUpon>CreateIncident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers.aspx.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers.aspx.designer.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
