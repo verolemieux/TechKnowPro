@@ -82,7 +82,7 @@ namespace TechKnowPro
                 {
                     string password = txtConfirmPass.Text;
                     cmd.CommandText = "UPDATE [User] SET Password ='" + BCrypt.Net.BCrypt.HashPassword(password) +
-                        "' WHERE Username ='" + Session["Username"].ToString() + "'"; ;
+                        "' WHERE Username ='" + Session["Username"].ToString() + "'"; 
 
                 }
                 cmd.CommandText = "UPDATE [User] SET " +
