@@ -49,22 +49,67 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
-        /// txtNewPassword control.
+        /// RegularExpressionUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionUsername;
         
         /// <summary>
-        /// txtConfirmPassword control.
+        /// lblNewPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label lblNewPass;
+        
+        /// <summary>
+        /// txtNewPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewPass;
+        
+        /// <summary>
+        /// validateRegexPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateRegexPass;
+        
+        /// <summary>
+        /// lblConfirmPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmPass;
+        
+        /// <summary>
+        /// txtConfirmPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPass;
+        
+        /// <summary>
+        /// validateConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validateConfirm;
         
         /// <summary>
         /// txtFirstName control.
@@ -112,13 +157,22 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// txtEmail control.
+        /// btnPassChange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Button btnPassChange;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// btnUpdate control.
@@ -128,5 +182,23 @@ namespace TechKnowPro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
+        
+        /// <summary>
+        /// lblUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUpdate;
+        
+        /// <summary>
+        /// CustomValidatorMissingFields control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMissingFields;
     }
 }

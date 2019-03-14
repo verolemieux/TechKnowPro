@@ -24,10 +24,10 @@
                 <div class="col" style="margin:5px">
                     <asp:Label ID="lblSecretQuestion" runat="server" Text="Secret Question"></asp:Label>
                     <asp:DropDownList ID="DropDownListSecretQuestion" class=" form-control" runat="server">
-                        <asp:ListItem Value="1">What is your favorite color?</asp:ListItem>
-                        <asp:ListItem Value="2">What was the name of your first pet?</asp:ListItem>
-                        <asp:ListItem Value="1">What is your dream job?</asp:ListItem>
-                        <asp:ListItem Value="4">Who was your childhood best friend?</asp:ListItem>
+                        <asp:ListItem Value="What is your favourite color?">What is your favourite color?</asp:ListItem>
+                        <asp:ListItem Value="What was the name of your first pet?">What was the name of your first pet?</asp:ListItem>
+                        <asp:ListItem Value="What is your dream job?">What is your dream job?</asp:ListItem>
+                        <asp:ListItem Value="Who was your childhood best friend?">Who was your childhood best friend?</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col" style="margin:5px">
