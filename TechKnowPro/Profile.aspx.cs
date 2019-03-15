@@ -39,6 +39,7 @@ namespace TechKnowPro
                     txtLastName.Text = sdr["Last_Name"].ToString();
                     drpSecretQuestion.Text = sdr["Secret_Question"].ToString();
                     txtAddress.Text = sdr["Address"].ToString();
+                    txtPhoneNum.Text = sdr["Phone_Number"].ToString();
                     txtSecretAnswer.Text = sdr["Secret_Answer"].ToString();
                 }
             }
@@ -76,6 +77,7 @@ namespace TechKnowPro
                 string secretQ = drpSecretQuestion.SelectedValue;
                 string secretA = txtSecretAnswer.Text;
                 string address = txtAddress.Text;
+                string phoneNum = txtPhoneNum.Text;
 
                 cmd.CommandType = System.Data.CommandType.Text;
 
@@ -93,6 +95,7 @@ namespace TechKnowPro
                     "', Secret_Question='" + secretQ +
                     "', Secret_Answer='" + secretA +
                     "', Address='" + address +
+                    "', Phone_Number='" + phoneNum +
                     "' WHERE Username ='" + Session["Username"].ToString() + "'";
 
                 cmd.ExecuteNonQuery();                
@@ -119,14 +122,16 @@ namespace TechKnowPro
             string message = "";
             if (string.IsNullOrEmpty(this.txtUsername.Text.Trim()))
                 message = message + "Username<br>";
-            if (string.IsNullOrEmpty(this.txtNewPass.Text.Trim()))
+            if (string.IsNullOrEmpty(this.txtNewPass.Text.Trim()) && txtNewPass.Visible == true)
                 message = message + "New Password<br>";
-            if (string.IsNullOrEmpty(this.txtConfirmPass.Text.Trim()))
+            if (string.IsNullOrEmpty(this.txtConfirmPass.Text.Trim()) && txtConfirmPass.Visible == true)
                 message = message + "Confirm Password<br>";
             if (string.IsNullOrEmpty(this.txtLastName.Text.Trim()))
                 message = message + "Last Name<br>";
             if (string.IsNullOrEmpty(this.txtAddress.Text.Trim()))
                 message = message + "Address<br>";
+            if (string.IsNullOrEmpty(this.txtPhoneNum.Text.Trim()))
+                message = message + "Phone Number<br>";
             if (string.IsNullOrEmpty(this.txtSecretAnswer.Text.Trim()))
                 message = message + "Secret Answer<br>";
 

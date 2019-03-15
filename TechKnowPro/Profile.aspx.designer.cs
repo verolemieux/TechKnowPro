@@ -157,6 +157,24 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
+        /// txtPhoneNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPhoneNum;
+        
+        /// <summary>
+        /// regExPhoneNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regExPhoneNum;
+        
+        /// <summary>
         /// btnPassChange control.
         /// </summary>
         /// <remarks>
@@ -182,6 +200,15 @@ namespace TechKnowPro {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
+        
+        /// <summary>
+        /// btnHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHome;
         
         /// <summary>
         /// lblUpdate control.

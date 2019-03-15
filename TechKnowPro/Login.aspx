@@ -23,7 +23,7 @@
 <body class="text-center">
     <form id="form1" runat="server">
         <div class="container-fluid centered" style="margin: 0 auto; text-align:center">
-            <h1 style="margin:5px">LOGIN</h1>
+            <h1 style="margin:5px">TechKnow Pro - Incident Management Software Login</h1>
             <asp:Label ID="lblLoginErr" style="margin:5px" runat="server" ForeColor="Red"></asp:Label>
             <div class="form-group col-md-4" style="margin:auto">
                 <asp:TextBox ID="txtUsername" class="form-control" style="margin:5px" placeholder="Username" runat="server"></asp:TextBox>
