@@ -14,7 +14,7 @@
                     TechKnow Pro Incident Management Software
                 </td>
                 <td>
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" CausesValidation="False" />
                 </td>
             </tr>
         </table>
