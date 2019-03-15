@@ -21,7 +21,7 @@ namespace TechKnowPro
                 Response.Redirect("Home.aspx");
             }
 
-            lblSurveyNum.Text = "1";
+            int survey_id = 1;
             
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
@@ -32,7 +32,7 @@ namespace TechKnowPro
             SqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
-                lblSurveyNum.Text = (1 + Convert.ToInt32(sdr["Survey_Num"])).ToString();
+                survey_id++;
             }
             con.Close();
 
@@ -58,8 +58,14 @@ namespace TechKnowPro
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.Text;
 
+                cmd.CommandText = "INSERT INTO [Surveys] SET " +
 
-                Survey newSurvey = new Survey(Convert.ToInt32(lblSurveyNum.Text), 
+                    "'  response_time = '" + radListResponse.SelectedValue + 
+
+                    "' technician_efficiency = '" + radListTech.SelectedValue +
+                    "' problem_resolution = '" + radListResolution.SelectedValue +
+                    "' additional_comments = '" + txtAddComments.Text +
+                    "' WHERE username ='" + Session["Username"].ToString() + "'";
 
                 if(chkContact.Checked == true)
                 {
@@ -82,7 +88,7 @@ namespace TechKnowPro
                 con.Close();
 
             }
-            
+            surv
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
