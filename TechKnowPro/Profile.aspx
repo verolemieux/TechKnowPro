@@ -99,7 +99,7 @@
                     <td class="auto-style3">*Secret Question</td>
                     <td>
                         <asp:DropDownList ID="drpSecretQuestion" runat="server" Width="453px" OnSelectedIndexChanged="drpSecretQuestion_SelectedIndexChanged">
-                            <asp:ListItem Value="What is your favourite color?">What is your favourite color?</asp:ListItem>
+                            <asp:ListItem Value="What is your favourite colour?">What is your favourite colour?</asp:ListItem>
                             <asp:ListItem Value="What was the name of your first pet?">What was the name of your first pet?</asp:ListItem>
                             <asp:ListItem Value="What is your dream job?">What is your dream job?</asp:ListItem>
                             <asp:ListItem Value="Who was your childhood best friend?">Who was your childhood best friend?</asp:ListItem>

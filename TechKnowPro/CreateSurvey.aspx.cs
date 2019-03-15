@@ -39,56 +39,54 @@ namespace TechKnowPro
         
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            string contactMe = "0";
+
+            if (chkContact.Checked == true)
+            {               
+                contactMe = "1";
+            }
+            else
+            {                
+                contactMe = "0";
+            }
+
             if (Page.IsValid)
             {
                 int surveynum = 1;
-
-                SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
-                con2.Open();
-                SqlCommand cmd2 = con2.CreateCommand();
-                cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "select survey_num from Surveys";
-                cmd2.ExecuteNonQuery();
-                SqlDataReader sdr = cmd2.ExecuteReader();
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+                SqlCommand cmd = con.CreateCommand();
+                
+                con.Open();                
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "select survey_num from Surveys";
+                cmd.ExecuteNonQuery();
+                SqlDataReader sdr = cmd.ExecuteReader();
                 //retrieves the highest incident number and increments by 1 for the next number
                 //returns empty if no items in table, case already handled above
                 while (sdr.Read())
+                {
                     surveynum = (1 + Convert.ToInt32(sdr["survey_num"]));
-                con2.Close();
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = System.Data.CommandType.Text;
-
-                /*cmd.CommandText = "UPDATE [Surveys] SET " +
-                    "  response_time = '" + radListResponse.SelectedValue + 
-                    "' technician_efficiency = '" + radListTech.SelectedValue +
-                    "' problem_resolution = '" + radListResolution.SelectedValue +
-                    "' additional_comments = '" + txtAddComments.Text +
-                    "' WHERE username ='" + Session["Username"].ToString() + "'";*/
-
-                //cmd.CommandText = "insert into [Surveys](survey_num,username,incident_id, response_time,technician_efficiency, problem_resolution, additional_comments) values ('"+ surveynum + "','" + Session["Username"].ToString() +"','" + Convert.ToInt32(listIncidents.SelectedValue)  + "','" + radListResponse.SelectedValue + "','" + radListTech.SelectedValue + "','" + radListResolution.SelectedValue + "','" + txtAddComments.Text+"')";
-                cmd.CommandText = "insert into [Surveys](survey_num, username, incident_id, response_time, technician_efficiency, problem_resolution, additional_comments) values ('" + surveynum + "','" + Session["Username"].ToString() + "','" + Convert.ToInt32(listIncidents.SelectedValue) + "','" + radListResponse.SelectedValue + "','" + radListTech.SelectedValue + "','" + radListResolution.SelectedValue + "','" + txtAddComments.Text + "')";
-                cmd.ExecuteNonQuery();
-                if (chkContact.Checked == true)
-                {
-                    validatorContact.Visible = true;                   
-                    radListContact.Visible = true;
-                    radListContact.CausesValidation = true;
-                    cmd.CommandText = "UPDATE [Surveys] " +
-                        "SET contact_further ='" + 1 + 
-                        "' contact_preference = '" + radListContact.SelectedValue +
-                        "' WHERE username ='" + Session["Username"].ToString() + "'";
-                    con.Close();
                 }
-                else
-                {
-                    validatorContact.Visible = false;
-                    cmd.CommandText = "UPDATE [Surveys] SET contact_further ='" + 0 + "'WHERE username = '" + Session["Username"].ToString() + "'";
-                    con.Close();
-
-                }                
                 con.Close();
+                SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+                SqlCommand cmd2 = con2.CreateCommand();
+
+                con2.Open();
+                cmd2.CommandType = System.Data.CommandType.Text;
+                cmd2.CommandText = "insert into [Surveys](survey_num, username, incident_id, response_time, technician_efficiency, problem_resolution, additional_comments, contact_further, contact_preference) " +
+                    "values ('" + surveynum +
+                    "','" + Session["Username"].ToString() +
+                    "','" + Convert.ToInt32(listIncidents.SelectedValue) +
+                    "','" + radListResponse.SelectedValue +
+                    "','" + radListTech.SelectedValue +
+                    "','" + radListResolution.SelectedValue +
+                    "','" + txtAddComments.Text +
+                    "','" + contactMe +
+                    "','" + radListContact.SelectedValue + "')";
+                cmd2.ExecuteNonQuery();
+
+                con2.Close();
+                
 
             }
         }
@@ -97,6 +95,21 @@ namespace TechKnowPro
         {
             Session.Abandon();
             Server.Transfer("~/Login.aspx");
+        }
+
+        protected void chkContact_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            validatorContact.Visible = true;
+            radListContact.Visible = true;
+            radListContact.CausesValidation = true;                
+            
+            if(chkContact.Checked == false)
+            {
+                validatorContact.Visible = false;
+                radListContact.Visible = false;
+                radListContact.CausesValidation = false;
+            }
         }
     }
 }

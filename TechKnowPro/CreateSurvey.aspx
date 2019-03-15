@@ -14,7 +14,7 @@
                     TechKnow Pro Incident Management Software
                 </td>
                 <td>
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" CausesValidation="False" />
                 </td>
             </tr>
         </table>
@@ -31,6 +31,7 @@
             <asp:Label ID="lblCustomerID" runat="server"></asp:Label>
          </div>
          <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents" DataTextField="LISTITEM" DataValueField="Incident_Num"></asp:ListBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="listIncidents" ErrorMessage="You must select an incident" ForeColor="Red"></asp:RequiredFieldValidator>
          <br />
          <br />
          <h3>Please rate this incident by the following categories:</h3>Response Time:
@@ -60,13 +61,13 @@
          Additional Comments:<br />
          <asp:TextBox ID="txtAddComments" runat="server" Height="82px" Width="415px"></asp:TextBox>
          <br />
-         <asp:CheckBox ID="chkContact" runat="server" Text="Please contact me to discuss this incident" />
+         <asp:CheckBox ID="chkContact" runat="server" Text="Please contact me to discuss this incident" AutoPostBack="True" OnCheckedChanged="chkContact_CheckedChanged" />
          <asp:RadioButtonList ID="radListContact" runat="server" RepeatDirection="Horizontal" Visible="False">
              <asp:ListItem Value="Email">Contact via Email</asp:ListItem>
              <asp:ListItem Value="phone">Contact via phone</asp:ListItem>
          </asp:RadioButtonList>
          <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
-         <asp:RequiredFieldValidator ID="validatorContact" runat="server" ErrorMessage="Please choose a contact method" ForeColor="Red" Visible="False"></asp:RequiredFieldValidator>
+         <asp:RequiredFieldValidator ID="validatorContact" runat="server" ErrorMessage="Please choose a contact method" ForeColor="Red" Visible="False" ControlToValidate="radListContact"></asp:RequiredFieldValidator>
     </form>
 </body>
 </html>
