@@ -12,7 +12,12 @@ namespace TechKnowPro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None; if (Session["User Type"] == null || (Session["User Type"].ToString() != "tech" && Session["User Type"].ToString() != "admin"))
+            {
+                Session["ErrorMessage"] = "You do not have permission to access this page.";
+                if (Session["UserName"] == null) Server.Transfer("Login.aspx");
+                Server.Transfer("Home.aspx");
+            }
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
