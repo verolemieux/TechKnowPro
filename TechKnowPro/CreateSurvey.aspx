@@ -26,8 +26,8 @@
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="dbSurveys" runat="server"></asp:SqlDataSource>
             <br />
-            Customer ID:
-            <asp:Label ID="lblCustomerID" runat="server"></asp:Label>
+            Username: 
+            <asp:Label ID="lblUsername" runat="server"></asp:Label>
          </div>
          <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents"></asp:ListBox>
          <br />

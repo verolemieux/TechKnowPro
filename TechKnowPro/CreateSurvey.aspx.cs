@@ -21,20 +21,32 @@ namespace TechKnowPro
                 Response.Redirect("Home.aspx");
             }
 
+            int survey_id = 1;
+            
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "SELECT * FROM [Surveys] WHERE Username = '" + Session["Username"].ToString() + "'";
+            cmd.CommandText = "SELECT survey_id FROM [Survey]";
             cmd.ExecuteNonQuery();
             SqlDataReader sdr = cmd.ExecuteReader();
-
-            if (sdr.Read())
+            while (sdr.Read())
             {
-                lblCustomerID.Text = sdr["Username"].ToString();
+                survey_id++;
+            }
+            con.Close();
+
+             /*
+            if (!IsPostBack)
+            {
+                if (sdr.Read())
+                {
+                    lblUsername.Text = sdr["Username"].ToString();
+                }
             }
             
             con.Close();
+            */
         }
         
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -46,8 +58,10 @@ namespace TechKnowPro
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.Text;
 
-                cmd.CommandText = "UPDATE [Surveys] SET " +
-                    "  response_time = '" + radListResponse.SelectedValue + 
+                cmd.CommandText = "INSERT INTO [Surveys] SET " +
+
+                    "'  response_time = '" + radListResponse.SelectedValue + 
+
                     "' technician_efficiency = '" + radListTech.SelectedValue +
                     "' problem_resolution = '" + radListResolution.SelectedValue +
                     "' additional_comments = '" + txtAddComments.Text +
@@ -74,6 +88,7 @@ namespace TechKnowPro
                 con.Close();
 
             }
+            surv
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
