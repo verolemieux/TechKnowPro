@@ -17,8 +17,8 @@ namespace TechKnowPro
             if (Session["User Type"] == null || Session["User Type"].ToString() != "customer")
             {
                 Session["ErrorMessage"] = "You do not have permission to access this page.";
-                if (Session["Username"] == null) Response.Redirect("Login.aspx");
-                Response.Redirect("Home.aspx");
+                if (Session["Username"] == null) Server.Transfer("Login.aspx");
+                Server.Transfer("Home.aspx");
             }
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
@@ -95,8 +95,8 @@ namespace TechKnowPro
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx");
             Session.Abandon();
+            Server.Transfer("~/Login.aspx");
         }
     }
 }

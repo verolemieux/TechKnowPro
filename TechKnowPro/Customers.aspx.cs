@@ -17,8 +17,8 @@ namespace TechKnowPro
             if (Session["User Type"] == null || (Session["User Type"].ToString() != "tech" && Session["User Type"].ToString() != "admin"))
             {
                 Session["ErrorMessage"] = "You do not have permission to access this page.";
-                if (Session["UserName"] == null) Response.Redirect("Login.aspx");
-                Response.Redirect("Home.aspx");
+                if (Session["UserName"] == null) Server.Transfer("Login.aspx");
+                Server.Transfer("Home.aspx");
             }
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
@@ -57,7 +57,7 @@ namespace TechKnowPro
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("Login.aspx");
+            Server.Transfer("Login.aspx");
         }
     }
 }
