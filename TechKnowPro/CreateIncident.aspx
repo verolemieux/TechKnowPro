@@ -33,7 +33,6 @@
 </head>
 <body>
     <form id="form1" runat="server" >
-        <div class="container-fluid centered" style="margin: 0 auto">
         <table class="auto-style1">
 
             <tr>
@@ -64,7 +63,7 @@
                     <asp:ListItem Selected = "True" Text = "" Value = ""></asp:ListItem>
                     </asp:DropDownList>
 
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username], CONCAT(Last_Name, ', ', First_Name) as Names FROM [User] where NOT User_Type='admin' AND NOT User_Type = 'tech'"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username], CONCAT(Last_Name, ', ', First_Name) as Names FROM [User] where NOT Username='admin@isp.net' AND NOT Username = 'tech@isp.net'"></asp:SqlDataSource>
 
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Please select a customer."></asp:RequiredFieldValidator>
 
@@ -180,7 +179,6 @@
         </table>
          <hr />
             <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>
-            </div>
     </form>
 </body>
 </html>

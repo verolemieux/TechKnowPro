@@ -14,7 +14,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid centered" style="margin: 0 auto">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -51,7 +50,6 @@
         </p>
          <hr />
             <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>
-            </div>
     </form>
 </body>
 </html>

@@ -21,6 +21,11 @@ namespace TechKnowPro
                 Response.Redirect("Home.aspx");
             }
 
+<<<<<<< HEAD
+=======
+            int survey_id = 1;
+            
+>>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();
@@ -28,6 +33,14 @@ namespace TechKnowPro
             cmd.CommandText = "SELECT * FROM [Surveys] WHERE Username = '" + Session["Username"].ToString() + "'";
             cmd.ExecuteNonQuery();
             SqlDataReader sdr = cmd.ExecuteReader();
+<<<<<<< HEAD
+=======
+            while (sdr.Read())
+            {
+                survey_id++;
+            }
+            con.Close();
+>>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
 
             if (sdr.Read())
             {
@@ -60,6 +73,7 @@ namespace TechKnowPro
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.Text;
 
+<<<<<<< HEAD
                 /*cmd.CommandText = "UPDATE [Surveys] SET " +
                     "  response_time = '" + radListResponse.SelectedValue + 
                     "' technician_efficiency = '" + radListTech.SelectedValue +
@@ -71,6 +85,18 @@ namespace TechKnowPro
                 cmd.CommandText = "insert into [Surveys](survey_num, username, incident_id, response_time, technician_efficiency, problem_resolution, additional_comments) values ('" + surveynum + "','" + Session["Username"].ToString() + "','" + Convert.ToInt32(listIncidents.SelectedValue) + "','" + radListResponse.SelectedValue + "','" + radListTech.SelectedValue + "','" + radListResolution.SelectedValue + "','" + txtAddComments.Text + "')";
                 cmd.ExecuteNonQuery();
                 if (chkContact.Checked == true)
+=======
+                cmd.CommandText = "INSERT INTO [Surveys] SET " +
+
+                    "'  response_time = '" + radListResponse.SelectedValue + 
+
+                    "' technician_efficiency = '" + radListTech.SelectedValue +
+                    "' problem_resolution = '" + radListResolution.SelectedValue +
+                    "' additional_comments = '" + txtAddComments.Text +
+                    "' WHERE username ='" + Session["Username"].ToString() + "'";
+
+                if(chkContact.Checked == true)
+>>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
                 {
                     validatorContact.Visible = true;                   
                     radListContact.Visible = true;
@@ -91,6 +117,10 @@ namespace TechKnowPro
                 con.Close();
 
             }
+<<<<<<< HEAD
+=======
+            surv
+>>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

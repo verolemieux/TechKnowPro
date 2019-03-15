@@ -20,7 +20,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid centered" style="margin: 0 auto">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -41,7 +40,7 @@
                     
                     </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select a user." ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [User] WHERE NOT User_Type='admin' AND NOT User_Type = 'tech'">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [User] WHERE NOT Username='admin@isp.net' AND NOT Username = 'tech@isp.net'">
                         
                     </asp:SqlDataSource>
                 </td>
@@ -50,17 +49,27 @@
         <p>
             Incident List<br />
             <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource2" DataTextField="LISTITEM" DataValueField="Incident_Num" Width="546px"></asp:ListBox>
+
+        </p>
         <p>
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ListBox1" ErrorMessage="Please select an incident."></asp:RequiredFieldValidator>
 
         </p>
+        <p>
+
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Incident_Num, CONCAT('Incident Number: ', Incident_Num, ', Status: ', Status) AS LISTITEM FROM Incidents WHERE (Username = @Username)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="Username" PropertyName="SelectedValue" Type="String" DefaultValue=""/>
             </SelectParameters>
         </asp:SqlDataSource>
+
+        </p>
+        <p>
+
             <asp:Button ID="btnRetrieve" class="btn btn-primary" runat="server" Text="Retrieve" OnClick="btnRetrieve_Click" />
+
+        </p>
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Details</td>
@@ -94,10 +103,11 @@
             </tr>
         </table>
         <br />
+        <br />
+        <br />
         <asp:Button ID="btnHome" class="btn btn-outline-primary" runat="server" Text="Home" CausesValidation="False" OnClick="btnHome_Click" />
      <hr />
             <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>
-            </div>
     </form>
 </body>
 </html>
