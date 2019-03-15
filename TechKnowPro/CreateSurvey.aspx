@@ -19,7 +19,7 @@
             </tr>
         </table>
         <div>
-            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT *, CONCAT('Incident Number: ', Incident_Num, ', Status: ', Status) AS LISTITEM FROM [Incidents] WHERE (([Username] = @Username) AND ([Status] = @Status))">
+            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT *, CONCAT('Incident Number: ', Incident_Num, ', Status: ', Status) AS LISTITEM FROM [Incidents] WHERE (([Username] = @Username) AND ([Status] = @Status) AND ([Incident_Num] NOT IN (SELECT Incident_num FROM [Surveys])))">
                 <SelectParameters>
                     <asp:SessionParameter Name="Username" SessionField="Username" Type="String" />
                     <asp:QueryStringParameter Name="Status" QueryStringField="Closed" Type="String" DefaultValue="Closed" />
