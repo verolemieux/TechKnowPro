@@ -30,7 +30,8 @@ namespace TechKnowPro
             cmd.ExecuteNonQuery();
             SqlDataReader sdr = cmd.ExecuteReader();
 
-            if (!IsPostBack) { 
+            if (!IsPostBack)
+            { 
                 if (sdr.Read())
                 {
                     txtUsername.Text = sdr["Username"].ToString();                
