@@ -19,9 +19,10 @@
             </tr>
         </table>
         <div>
-            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Incident_Num] FROM [Incidents] WHERE ([Status] = @Status)">
+            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT *, CONCAT('Incident Number: ', Incident_Num, ', Status: ', Status) AS LISTITEM FROM [Incidents] WHERE (([Username] = @Username) AND ([Status] = @Status))">
                 <SelectParameters>
-                    <asp:Parameter DefaultValue="0" Name="Status" Type="Int32" />
+                    <asp:SessionParameter Name="Username" SessionField="Username" Type="String" />
+                    <asp:QueryStringParameter Name="Status" QueryStringField="Closed" Type="String" DefaultValue="Closed" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="dbSurveys" runat="server"></asp:SqlDataSource>
@@ -29,7 +30,7 @@
             Customer ID:
             <asp:Label ID="lblCustomerID" runat="server"></asp:Label>
          </div>
-         <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents"></asp:ListBox>
+         <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents" DataTextField="LISTITEM" DataValueField="Incident_Num"></asp:ListBox>
          <br />
          <br />
          <h3>Please rate this incident by the following categories:</h3>Response Time:
