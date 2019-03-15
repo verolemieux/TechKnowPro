@@ -45,9 +45,12 @@
             Email: <asp:Label ID="lblEmail" runat="server"></asp:Label>
         </p>
         <p>
-            <asp:Button ID="btnAddContact" class="btn btn-outline-primary" runat="server" Text="Add To Contact List" />
+            <asp:Button ID="btnAddContact" class="btn btn-outline-primary" runat="server" Text="Add To Contact List" OnClick="btnAddContact_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnGoContact" class="btn btn-primary" runat="server" Text="Display Contact List" />
+            <asp:Button ID="btnGoContact" class="btn btn-primary" runat="server" Text="Display Contact List"  PostBackUrl="ContactList.aspx" />
+        </p>
+            <p>
+                <asp:Label ID="lblSuccess" runat="server" Text="User added to contact List." Visible="False"></asp:Label>
         </p>
          <hr />
             <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro</h6>

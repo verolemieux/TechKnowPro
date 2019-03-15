@@ -37,7 +37,7 @@
                     <h1><b>TechKnow Pro Incident Management Software</b></h1>
                 </td>
                 <td>
-                    <asp:Button ID="btnLogout"  class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+                    <asp:Button ID="btnLogout"  class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Logout" OnClick="btnLogout_Click" UseSubmitBehavior="False" />
                 </td>
             </tr>
         </table>
@@ -127,13 +127,13 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <br /><asp:Button ID="btnPassChange" class="btn btn-primary" runat="server" CausesValidation="False" OnClick="btnPassChange_Click" Text="Change Password" />
+                        <br /><asp:Button ID="btnPassChange" class="btn btn-primary" runat="server" CausesValidation="False" OnClick="btnPassChange_Click" Text="Change Password" UseSubmitBehavior="False" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnClear" class="btn btn-outline-primary" runat="server" OnClick="btnClear_Click" Text="Clear" />
+                        <asp:Button ID="btnClear" class="btn btn-outline-primary" runat="server" OnClick="btnClear_Click" Text="Clear" UseSubmitBehavior="False" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnUpdate" class="btn btn-primary" runat="server" Text="Update Profile" OnClick="btnUpdate_Click" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnHome" class="btn btn-outline-primary" runat="server" Text="Home" CausesValidation="False" OnClick="btnHome_Click" Height="35px" />
+                        <asp:Button ID="btnHome" class="btn btn-outline-primary" runat="server" Text="Home" CausesValidation="False" OnClick="btnHome_Click" Height="35px" UseSubmitBehavior="False" />
                         <br />
                         <asp:Label ID="lblUpdate" runat="server" ForeColor="Red"></asp:Label>
                         <asp:CustomValidator ID="CustomValidatorMissingFields" runat="server" ForeColor="Red" OnServerValidate="CustomValidatorMissingFields_ServerValidate"></asp:CustomValidator>
