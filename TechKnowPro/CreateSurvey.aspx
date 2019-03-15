@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateSurvey.aspx.cs" Inherits="TechKnowPro.CreateSurvey" %>
-=======
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Survey.aspx.cs" Inherits="TechKnowPro.Surveys" %>
->>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
 
 <!DOCTYPE html>
 
@@ -23,31 +19,18 @@
             </tr>
         </table>
         <div>
-<<<<<<< HEAD
             Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT *, CONCAT('Incident Number: ', Incident_Num, ', Status: ', Status) AS LISTITEM FROM [Incidents] WHERE (([Username] = @Username) AND ([Status] = @Status))">
                 <SelectParameters>
                     <asp:SessionParameter Name="Username" SessionField="Username" Type="String" />
                     <asp:QueryStringParameter Name="Status" QueryStringField="Closed" Type="String" DefaultValue="Closed" />
-=======
-            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Incident_Num] FROM [Incidents] WHERE ([Status] = @Status)">
-                <SelectParameters>
-                    <asp:Parameter DefaultValue="0" Name="Status" Type="Int32" />
->>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="dbSurveys" runat="server"></asp:SqlDataSource>
             <br />
-<<<<<<< HEAD
             Customer ID:
             <asp:Label ID="lblCustomerID" runat="server"></asp:Label>
          </div>
          <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents" DataTextField="LISTITEM" DataValueField="Incident_Num"></asp:ListBox>
-=======
-            Username: 
-            <asp:Label ID="lblUsername" runat="server"></asp:Label>
-         </div>
-         <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents"></asp:ListBox>
->>>>>>> 3992e36a43835cfb4b64257e222b0d4638d33328
          <br />
          <br />
          <h3>Please rate this incident by the following categories:</h3>Response Time:
