@@ -50,7 +50,7 @@ namespace TechKnowPro
                     Session["Key"] = verificationKey;
                     sendRegistrationEmail();
                     con.Close();
-                    newUser = new User(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtEmail.Text, txtPassword.Text, verificationKey);
+                    newUser = new User(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtEmail.Text, txtPassword.Text, verificationKey, txtphone.Text);
                     newUser.addUserToDatabase();
                     lblSuccessfulRegistration.Text = "You have successfully registered! An email was sent to " + userName + " - please verify to confirm email address.";
                 }
@@ -92,6 +92,8 @@ namespace TechKnowPro
                 message = message + "Address<br>";
             if (string.IsNullOrEmpty(this.txtEmail.Text.Trim()))
                 message = message + "Email<br>";
+            if (string.IsNullOrEmpty(this.txtphone.Text.Trim()))
+                message = message + "Phone Number<br>";
             if (string.IsNullOrEmpty(this.txtPassword.Text.Trim()))
                 message = message + "Password<br>";
             if (string.IsNullOrEmpty(this.txtConfirmPassword.Text.Trim()))

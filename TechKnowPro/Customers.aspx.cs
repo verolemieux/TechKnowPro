@@ -50,7 +50,7 @@ namespace TechKnowPro
             {
                 lblAddress.Text = sdr["Address"].ToString();
                 lblEmail.Text = sdr["Username"].ToString();
-                lblPhone.Text = "555-555-5555";
+                lblPhone.Text = sdr["Phone_Number"].ToString();
             }
             con.Close();
         }

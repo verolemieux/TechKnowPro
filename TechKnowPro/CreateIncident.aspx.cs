@@ -58,6 +58,7 @@ namespace TechKnowPro
             SqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
                 txtCustId.Text = sdr["Username"].ToString();
+            con.Close();
         }
 
         protected void custValidator_ServerValidate(object source, ServerValidateEventArgs args)

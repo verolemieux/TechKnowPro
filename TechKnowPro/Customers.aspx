@@ -29,7 +29,7 @@
             Customer - Search and view your customer contact information</p>
         <p>
             Select a customer:
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Names" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Names" DataValueField="Username" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Username, CONCAT(Last_Name, ', ', First_Name) as Names FROM [User] where NOT Username='tech@isp.net' and NOT Username='admin@isp.net'"></asp:SqlDataSource>
         </p>
