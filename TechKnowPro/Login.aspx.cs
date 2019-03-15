@@ -30,7 +30,7 @@ namespace TechKnowPro
             if (string.IsNullOrEmpty(username.Trim()) || string.IsNullOrEmpty(password.Trim()))
             {
                 //if the user did not enter username or password
-                Response.Redirect("~/Login.aspx");
+                Server.Transfer("~/Login.aspx");
             }
             else if (Page.IsValid)
             {

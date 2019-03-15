@@ -26,16 +26,18 @@
             width: 418px;
         }
     </style>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        &nbsp;<table class="auto-style1">
+         <div class="container-fluid centered" style="margin: 0 auto">
+        <table class="auto-style1">
             <tr>
                 <td>
-                    TechKnow Pro Incident Management Software
+                    <h1><b>TechKnow Pro Incident Management Software</b></h1>
                 </td>
                 <td>
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+                    <asp:Button ID="btnLogout"  class="btn btn-outline-primary" style="margin:5px" runat="server" Text="Logout" OnClick="btnLogout_Click" />
                 </td>
             </tr>
         </table>
@@ -51,7 +53,7 @@
                 <tr>
                     <td class="auto-style8">*Username:</td>
                     <td>
-                        <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtUsername" runat="server" Width="353px"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionUsername" runat="server" ControlToValidate="txtUsername" ErrorMessage="Email address must be valid!" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
@@ -96,7 +98,7 @@
                 <tr>
                     <td class="auto-style3">*Secret Question</td>
                     <td>
-                        <asp:DropDownList ID="drpSecretQuestion" runat="server" Width="237px" OnSelectedIndexChanged="drpSecretQuestion_SelectedIndexChanged">
+                        <asp:DropDownList ID="drpSecretQuestion" runat="server" Width="453px" OnSelectedIndexChanged="drpSecretQuestion_SelectedIndexChanged">
                             <asp:ListItem Value="What is your favourite color?">What is your favourite color?</asp:ListItem>
                             <asp:ListItem Value="What was the name of your first pet?">What was the name of your first pet?</asp:ListItem>
                             <asp:ListItem Value="What is your dream job?">What is your dream job?</asp:ListItem>
@@ -117,17 +119,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <asp:Button ID="btnPassChange" runat="server" CausesValidation="False" OnClick="btnPassChange_Click" Text="Change Password" />
-                        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
-                        <asp:Button ID="btnUpdate" runat="server" Text="Update Profile" OnClick="btnUpdate_Click" />
-                        <br />
-                        <asp:Label ID="lblUpdate" runat="server"></asp:Label>
-                        <asp:CustomValidator ID="CustomValidatorMissingFields" runat="server" ForeColor="Red" OnServerValidate="CustomValidatorMissingFields_ServerValidate"></asp:CustomValidator>
+                    <td class="auto-style3">*Phone Number:</td>
+                    <td>
+                        <asp:TextBox ID="txtPhoneNum" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="regExPhoneNum" runat="server" ControlToValidate="txtPhoneNum" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">Please enter valid phone number. (###-###-####)</asp:RegularExpressionValidator>
                     </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <br /><asp:Button ID="btnPassChange" class="btn btn-primary" runat="server" CausesValidation="False" OnClick="btnPassChange_Click" Text="Change Password" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnClear" class="btn btn-outline-primary" runat="server" OnClick="btnClear_Click" Text="Clear" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnUpdate" class="btn btn-primary" runat="server" Text="Update Profile" OnClick="btnUpdate_Click" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnHome" class="btn btn-outline-primary" runat="server" Text="Home" CausesValidation="False" OnClick="btnHome_Click" Height="35px" />
+                        <br />
+                        <asp:Label ID="lblUpdate" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:CustomValidator ID="CustomValidatorMissingFields" runat="server" ForeColor="Red" OnServerValidate="CustomValidatorMissingFields_ServerValidate"></asp:CustomValidator>
+                        
+                   </td>
                 </tr>
             </table>
         </div>
+      </div>
     </form>
     
 </body>

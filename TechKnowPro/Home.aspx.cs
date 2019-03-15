@@ -20,7 +20,7 @@ namespace TechKnowPro
             {
                 //if the user attempts to access a page that they are not authorized to view
                 Session.Add("ErrorMessage", "You must successfully login before accessing the page!");
-                Response.Redirect("~/Login.aspx");
+                Server.Transfer("~/Login.aspx");
             }
             else
             {

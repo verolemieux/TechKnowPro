@@ -28,6 +28,11 @@
                     <asp:TextBox ID="txtAddress" class="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group" style="margin:5px">
+                    <asp:Label ID="lblPhoneNum" runat="server" Text="Phone Number*"></asp:Label>
+                    <asp:TextBox ID="txtphone" class="form-control" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="regExPhoneNum" runat="server" ControlToValidate="txtphone" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">Please enter valid phone number. (###-###-####)</asp:RegularExpressionValidator>
+                </div>
+                <div class="form-group" style="margin:5px">
                     <asp:Label ID="lblEmail" runat="server" Text="Email*"></asp:Label>
                     <asp:TextBox ID="txtEmail" class="form-control" runat="server"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="regExValEmail" runat="server" ControlToValidate="txtEmail" ForeColor="Red" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" ErrorMessage="Email address must be valid!" Display="Dynamic"></asp:RegularExpressionValidator>
