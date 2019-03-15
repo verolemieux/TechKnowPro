@@ -177,5 +177,10 @@ namespace TechKnowPro
             Session.Abandon();
             Server.Transfer("~/Login.aspx");           
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("Home.aspx");
+        }
     }
 }
