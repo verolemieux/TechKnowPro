@@ -76,6 +76,7 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="CreateIncident.aspx" />
+    <Content Include="CreateSurvey.aspx" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-reboot.css" />
@@ -94,7 +95,6 @@
     <Content Include="Login.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="Survey.aspx" />
     <Content Include="ViewIncident.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -105,6 +105,13 @@
     </Compile>
     <Compile Include="CreateIncident.aspx.designer.cs">
       <DependentUpon>CreateIncident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateSurvey.aspx.cs">
+      <DependentUpon>CreateSurvey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateSurvey.aspx.designer.cs">
+      <DependentUpon>CreateSurvey.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
@@ -149,13 +156,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Survey.aspx.cs">
-      <DependentUpon>Survey.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Survey.aspx.designer.cs">
-      <DependentUpon>Survey.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="ViewIncident.aspx.cs">

@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace TechKnowPro
 {
-    public partial class Surveys : System.Web.UI.Page
+    public partial class CreateSurvey : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,47 +21,56 @@ namespace TechKnowPro
                 Response.Redirect("Home.aspx");
             }
 
-            lblSurveyNum.Text = "1";
-            
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "SELECT survey_id FROM [Survey]";
+            cmd.CommandText = "SELECT * FROM [Surveys] WHERE Username = '" + Session["Username"].ToString() + "'";
             cmd.ExecuteNonQuery();
             SqlDataReader sdr = cmd.ExecuteReader();
-            while (sdr.Read())
-            {
-                lblSurveyNum.Text = (1 + Convert.ToInt32(sdr["Survey_Num"])).ToString();
-            }
-            con.Close();
 
-             /*
-            if (!IsPostBack)
+            if (sdr.Read())
             {
-                if (sdr.Read())
-                {
-                    lblUsername.Text = sdr["Username"].ToString();
-                }
+                lblCustomerID.Text = sdr["Username"].ToString();
             }
             
             con.Close();
-            */
         }
         
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
+                int surveynum = 1;
+
+                SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+                con2.Open();
+                SqlCommand cmd2 = con2.CreateCommand();
+                cmd2.CommandType = System.Data.CommandType.Text;
+                cmd2.CommandText = "select survey_num from Surveys";
+                cmd2.ExecuteNonQuery();
+                SqlDataReader sdr = cmd2.ExecuteReader();
+                //retrieves the highest incident number and increments by 1 for the next number
+                //returns empty if no items in table, case already handled above
+                while (sdr.Read())
+                    surveynum = (1 + Convert.ToInt32(sdr["survey_num"]));
+                con2.Close();
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.Text;
 
+                /*cmd.CommandText = "UPDATE [Surveys] SET " +
+                    "  response_time = '" + radListResponse.SelectedValue + 
+                    "' technician_efficiency = '" + radListTech.SelectedValue +
+                    "' problem_resolution = '" + radListResolution.SelectedValue +
+                    "' additional_comments = '" + txtAddComments.Text +
+                    "' WHERE username ='" + Session["Username"].ToString() + "'";*/
 
-                Survey newSurvey = new Survey(Convert.ToInt32(lblSurveyNum.Text), 
-
-                if(chkContact.Checked == true)
+                //cmd.CommandText = "insert into [Surveys](survey_num,username,incident_id, response_time,technician_efficiency, problem_resolution, additional_comments) values ('"+ surveynum + "','" + Session["Username"].ToString() +"','" + Convert.ToInt32(listIncidents.SelectedValue)  + "','" + radListResponse.SelectedValue + "','" + radListTech.SelectedValue + "','" + radListResolution.SelectedValue + "','" + txtAddComments.Text+"')";
+                cmd.CommandText = "insert into [Surveys](survey_num, username, incident_id, response_time, technician_efficiency, problem_resolution, additional_comments) values ('" + surveynum + "','" + Session["Username"].ToString() + "','" + Convert.ToInt32(listIncidents.SelectedValue) + "','" + radListResponse.SelectedValue + "','" + radListTech.SelectedValue + "','" + radListResolution.SelectedValue + "','" + txtAddComments.Text + "')";
+                cmd.ExecuteNonQuery();
+                if (chkContact.Checked == true)
                 {
                     validatorContact.Visible = true;                   
                     radListContact.Visible = true;
@@ -82,7 +91,6 @@ namespace TechKnowPro
                 con.Close();
 
             }
-            
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

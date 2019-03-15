@@ -65,7 +65,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">What do you think about our service?</h5>
-                      <h6 class="card-subtitle mb-2 text-muted"><a href="Survey.aspx">Survey</a></h6>
+                      <h6 class="card-subtitle mb-2 text-muted"><a href="CreateSurvey.aspx">Survey</a></h6>
                     <p class="card-text">Submit a survey to provide your feedback for any service we have provided to you recently</p>
                   </div>
                 </div>
