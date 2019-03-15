@@ -59,5 +59,17 @@ namespace TechKnowPro
             Session.Abandon();
             Server.Transfer("Login.aspx");
         }
+
+        protected void btnAddContact_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "Update [User] set Require_Contact='true' where Username='" + DropDownList1.SelectedValue.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            con.Close();
+            lblSuccess.Visible = true;
+        }
     }
 }

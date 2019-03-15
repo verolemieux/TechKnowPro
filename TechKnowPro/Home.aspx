@@ -13,7 +13,7 @@
                 <table class="w-100">
                     <tr>
                         <td><h1 class="font-weight-bold">TechKnowPro - Incident Report Management Software</h1></td>
-                        <td><asp:Button ID="btnLogout" class="btn btn-outline-primary" runat="server" OnClick="BtnLogout_Click" Text="Logout" /></td>
+                        <td><asp:Button ID="btnLogout" class="btn btn-outline-primary" runat="server" OnClick="BtnLogout_Click" Text="Logout" CausesValidation="False" /></td>
                     </tr>
                 </table>
                 

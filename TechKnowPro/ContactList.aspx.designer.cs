@@ -10,7 +10,7 @@
 namespace TechKnowPro {
     
     
-    public partial class Customers {
+    public partial class WebForm1 {
         
         /// <summary>
         /// form1 control.
@@ -31,15 +31,6 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// DropDownList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
@@ -49,57 +40,57 @@ namespace TechKnowPro {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// lblAddress control.
+        /// ListBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddress;
+        protected global::System.Web.UI.WebControls.ListBox ListBox1;
         
         /// <summary>
-        /// lblPhone control.
+        /// btnRemoveContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhone;
+        protected global::System.Web.UI.WebControls.Button btnRemoveContact;
         
         /// <summary>
-        /// lblEmail control.
+        /// btnEmptyList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Button btnEmptyList;
         
         /// <summary>
-        /// btnAddContact control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddContact;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// btnGoContact control.
+        /// btnSelectAdditionalCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGoContact;
+        protected global::System.Web.UI.WebControls.Button btnSelectAdditionalCustomers;
         
         /// <summary>
-        /// lblSuccess control.
+        /// btnHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccess;
+        protected global::System.Web.UI.WebControls.Button btnHome;
     }
 }

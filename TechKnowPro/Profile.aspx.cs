@@ -21,7 +21,7 @@ namespace TechKnowPro
                 if (Session["Username"] == null) Server.Transfer("Login.aspx");
                 Server.Transfer("Home.aspx");
             }
-                        
+                    
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = con.CreateCommand();

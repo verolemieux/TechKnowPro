@@ -47,8 +47,8 @@ namespace TechKnowPro
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx");
             Session.Abandon();
+            Server.Transfer("~/Login.aspx");       
         }
 
         protected void btnResendEmail_Click(object sender, EventArgs e)
