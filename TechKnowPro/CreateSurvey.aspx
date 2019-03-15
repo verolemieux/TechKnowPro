@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Survey.aspx.cs" Inherits="TechKnowPro.Surveys" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateSurvey.aspx.cs" Inherits="TechKnowPro.Surveys" %>
 
 <!DOCTYPE html>
 
@@ -19,17 +19,30 @@
             </tr>
         </table>
         <div>
-            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Incident_Num] FROM [Incidents] WHERE ([Status] = @Status)">
+            Surveys - Collect feedback form Customers<asp:SqlDataSource ID="dbIncidents" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Incident_Num], [Report Date and Time] AS Report_Date_and_Time FROM [Incidents] WHERE ([Incident_Num] = @Incident_Num)">
                 <SelectParameters>
-                    <asp:Parameter DefaultValue="0" Name="Status" Type="Int32" />
+                    <asp:Parameter DefaultValue="1" Name="Incident_Num" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="dbSurveys" runat="server"></asp:SqlDataSource>
             <br />
             Username: 
             <asp:Label ID="lblUsername" runat="server"></asp:Label>
+            <br />
+            Survey Number:
+            <asp:Label ID="lblSurveyNum" runat="server"></asp:Label>
          </div>
-         <asp:ListBox ID="listIncidents" runat="server" DataSourceID="dbIncidents"></asp:ListBox>
+         <asp:DataList ID="DataList1" runat="server" DataKeyField="Incident_Num" DataSourceID="dbIncidents">
+             <ItemTemplate>
+                 Incident_Num:
+                 <asp:Label ID="Incident_NumLabel" runat="server" Text='<%# Eval("Incident_Num") %>' />
+                 <br />
+                 Report_Date_and_Time:
+                 <asp:Label ID="Report_Date_and_TimeLabel" runat="server" Text='<%# Eval("Report_Date_and_Time") %>' />
+                 <br />
+                 <br />
+             </ItemTemplate>
+         </asp:DataList>
          <br />
          <br />
          <h3>Please rate this incident by the following categories:</h3>Response Time:
