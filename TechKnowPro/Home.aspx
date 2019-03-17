@@ -29,7 +29,10 @@
               <div class="card-body">
                 <h5 class="card-title">Getting Started</h5>
                 <h6 class="card-subtitle mb-2 text-muted"><a href="Customers.aspx">Customers</a></h6>
-                <p class="card-text">Go to Customers section to search customer information</p>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="ContactList.aspx">Contact List</a></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><a href="ViewSurvey.aspx">View Customer Surveys</a></h6>
+               
+                 
               </div>
             </div>
             <br />

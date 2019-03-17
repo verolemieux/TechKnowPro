@@ -97,6 +97,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ViewIncident.aspx" />
+    <Content Include="ViewSurvey.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +173,13 @@
     </Compile>
     <Compile Include="ViewIncident.aspx.designer.cs">
       <DependentUpon>ViewIncident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSurvey.aspx.cs">
+      <DependentUpon>ViewSurvey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSurvey.aspx.designer.cs">
+      <DependentUpon>ViewSurvey.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
