@@ -74,7 +74,7 @@ namespace TechKnowPro
             ListBox1.Items.Clear();
             con.Open();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "Select incident_id FROM [Surveys] WHERE Username='" + DropDownList1.SelectedValue + "'";
+            cmd.CommandText = "Select incident_num FROM [Surveys] WHERE Username='" + DropDownList1.SelectedValue + "'";
             cmd.ExecuteNonQuery();
              sdr = cmd.ExecuteReader();
             if (sdr.HasRows)
@@ -82,8 +82,8 @@ namespace TechKnowPro
                 while (sdr.Read())
                 {
                     ListItem surveyItem = new ListItem();
-                    surveyItem.Text = "Select the survey for incident number: " + sdr["incident_id"].ToString();
-                    surveyItem.Value = sdr["incident_id"].ToString();
+                    surveyItem.Text = "Select the survey for incident number: " + sdr["incident_num"].ToString();
+                    surveyItem.Value = sdr["incident_num"].ToString();
                     ListBox1.Items.Add(surveyItem);
                 }
             }
@@ -135,7 +135,7 @@ namespace TechKnowPro
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "SELECT * FROM [Surveys] WHERE Username='" + DropDownList1.SelectedValue.ToString() + "' AND incident_id = '" + ListBox1.SelectedValue.ToString() + "'";
+            cmd.CommandText = "SELECT * FROM [Surveys] WHERE Username='" + DropDownList1.SelectedValue.ToString() + "' AND incident_num = '" + ListBox1.SelectedValue.ToString() + "'";
             cmd.ExecuteNonQuery();
             SqlDataReader sdr = cmd.ExecuteReader();
             

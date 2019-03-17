@@ -60,7 +60,7 @@
                 <p>
                     <asp:Label runat="server" ID="surveyListingLabel">Survey Listing</asp:Label>
                     <br/>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server"  ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [incident_id] FROM [Surveys] "></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server"  ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [incident_num] FROM [Surveys] "></asp:SqlDataSource>
                     <asp:ListBox ID="ListBox1" runat="server" Width="546px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" >
                         <asp:ListItem Enabled="False">Select a submitted survey</asp:ListItem>
                     </asp:ListBox>
