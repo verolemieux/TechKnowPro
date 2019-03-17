@@ -59,6 +59,18 @@ namespace TechKnowPro
           
             con.Close();
 
+            //pulls data to put into customer ID text box
+            SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
+            con2.Open();
+            SqlCommand cmd2 = con2.CreateCommand();
+            cmd2.CommandType = System.Data.CommandType.Text;
+            cmd2.CommandText = "select [Username] from [User]" + " where Username='" + DropDownList1.SelectedValue + "'";
+            cmd2.ExecuteNonQuery();
+            SqlDataReader sdr2 = cmd2.ExecuteReader();
+            while (sdr2.Read())
+                txtCustId.Text = sdr2["Username"].ToString();
+            con2.Close();
+
             ListBox1.Items.Clear();
             con.Open();
             cmd.CommandType = System.Data.CommandType.Text;
@@ -145,5 +157,7 @@ namespace TechKnowPro
             con.Close();
 
         }
+
+        
     }
 }

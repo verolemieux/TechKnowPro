@@ -17,6 +17,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="container-fluid centered" style="margin: 0 auto">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -29,7 +30,8 @@
         </div>
 
          <table class="auto-style1">
-                    
+                 <tr>  
+                     <td>
                         Select a customer
                         <p>
                             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Username" DataValueField="Username" AppendDataBoundItems = "true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
@@ -42,7 +44,16 @@
                             </asp:SqlDataSource>
                         &nbsp;
                          </p>
-                    
+                      </td>
+                     <td>
+                         Customer ID: <asp:TextBox ID="txtCustId" runat="server" Enabled="False" Width="329px"></asp:TextBox>
+                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Username] FROM [User] WHERE ([Username] = @Username)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" Name="Username" PropertyName="SelectedValue" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                     </td>
+                    </tr>
                 </table>
         <asp:Panel runat="server" ID="selectCustomerPanel" Visible="false">
                
@@ -108,6 +119,8 @@
         <br />
         <br />
      <hr />
-            <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro </h6> </form>
+            <h6 class="font-weight-light">@2019 COMP2139 TechKnow Pro </h6>
+        </div>        
+    </form>
 </body>
 </html>
