@@ -73,7 +73,7 @@ namespace TechKnowPro
 
                 con2.Open();
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "insert into [Surveys](survey_num, username, incident_id, response_time, technician_efficiency, problem_resolution, additional_comments, contact_further, contact_preference) " +
+                cmd2.CommandText = "insert into [Surveys](survey_num, username, incident_num, response_time, technician_efficiency, problem_resolution, additional_comments, contact_further, contact_preference) " +
                     "values ('" + surveynum +
                     "','" + Session["Username"].ToString() +
                     "','" + Convert.ToInt32(listIncidents.SelectedValue) +
@@ -86,8 +86,9 @@ namespace TechKnowPro
                 cmd2.ExecuteNonQuery();
 
                 con2.Close();
-                
 
+                Session["survey_num"] = surveynum;
+                Server.Transfer("ConfirmSurvey.aspx");
             }
         }
 
